@@ -14,5 +14,27 @@ html {
 }
 
 body {
-  background-color: rgb(87, 87, 104);
+  color: rgb(240, 240, 240);
+  background-color: rgb(38, 40, 53);
+}
+
+.page-container {
+  padding: 1rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+hr {
+  border: 1px solid rgb(116, 119, 119);;
+  margin: .4rem 0 1rem 0;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  background-color: rgb(55, 55, 61);
+  padding: .5rem .7rem;
+  border-radius: 10px;
 }

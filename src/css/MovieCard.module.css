@@ -1,0 +1,22 @@
+.movieCardWrapper {
+  position: relative;
+  border-radius: 10px;
+  background-color: rgba(73, 73, 70, 0.445);
+  box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.377);
+  cursor: pointer;
+}
+
+.movieCardWrapper:hover {
+  top: -3px;
+  box-shadow: 3px 6px 8px rgba(0, 0, 0, 0.377);
+}
+
+.movieCardWrapper img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.movieCardWrapper h2 {
+  font-size: .9rem;
+  padding: .6rem;
+}
