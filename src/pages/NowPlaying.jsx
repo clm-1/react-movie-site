@@ -4,7 +4,9 @@ import MovieList from '../components/MovieList';
 const NowPlaying = () => {
   return (
     <div className="page-container">
-      <h1>Now Playing</h1>
+      <div className="page-header">
+        <h1>Now Playing</h1>
+      </div>
         <MovieList type="now_playing" />
     </div>
   )

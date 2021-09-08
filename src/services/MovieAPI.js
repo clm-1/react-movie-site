@@ -17,5 +17,14 @@ const get = async (endpoint) => {
 
 // Get movie-lists based on type (popular, now_playing or top_rated)
 export const getMovies = async (type) => {
-  return await get(`/movie/${type}?api_key=${apiKey}&region=${reg}`)
+  return await get(`/movie/${type}?api_key=${apiKey}&region=${reg}`);
+};
+
+export const getGenres = async () => {
+  return await get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`)
 }
+
+export const getMoviesByGenre = async (genre) => {
+  return await get(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genre}`);
+};
+
