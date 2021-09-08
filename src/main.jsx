@@ -1,11 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import './index.css'
-import App from './App'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import './index.css';
+import App from './App';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 10,
+    }
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <App />
+        <ReactQueryDevtools />
+      </Router>
+    </QueryClientProvider>
+
   </React.StrictMode>,
   document.getElementById('root')
 )
