@@ -1,13 +1,13 @@
 import React from 'react';
 import MovieList from '../components/MovieList';
 
-const Popular = () => {
+const TopRated = () => {
   return (
     <div className="page-container">
-      <h1>Popular</h1>
-        <MovieList type="popular" />
+      <h1>Top Rated</h1>
+        <MovieList type="top_rated" />
     </div>
   )
 }
 
-export default Popular
+export default TopRated
