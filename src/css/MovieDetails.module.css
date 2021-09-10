@@ -1,0 +1,21 @@
+.movieDetailsHeader {
+  display: flex;
+}
+
+.movieDetailsHeader img {
+  width: 30%;
+  margin-right: 2rem;
+}
+
+.movieDetailsHeader h1 {
+  font-size: 2rem;
+}
+
+.headerTitle {
+  display: flex;
+}
+
+.releaseYear {
+  opacity: .8;
+  font-weight: lighter;
+}
