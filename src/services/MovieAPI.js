@@ -30,6 +30,6 @@ export const getMoviesByGenre = async (genre) => {
 
 // Get specific movie details
 export const getMovie = async (id) => {
-  return await get(`/movie/${id}?api_key=${apiKey}`);
+  return await get(`/movie/${id}?api_key=${apiKey}&append_to_response=credits`);
 }
 
