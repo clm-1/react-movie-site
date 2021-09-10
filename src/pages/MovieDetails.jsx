@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from '../css/MovieDetails.module.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getMovie } from '../services/MovieAPI';
 
 const MovieDetails = () => {
   const { id } = useParams();
+  const history = useHistory();
   const { data, isError, error, isLoading } = useQuery(['details', id], () => {
     return getMovie(id);
   });
@@ -50,8 +51,6 @@ const MovieDetails = () => {
     )
   }
 
-  const arr = [<span>hej</span>, <p>hej2</p>]
-
   return (
     <div className="page-container">
       {isLoading && <p>Loading...</p>}
@@ -61,9 +60,12 @@ const MovieDetails = () => {
         {data && data.credits.cast.slice(0, 10).map(actor => {
           if (actor.profile_path !== null) {
             return (
-              <div key={actor.id} className={styles.actorCard}>
-                <img src={`${imgPrefix}${actor.profile_path}`}></img>
-                <p>{actor.name}</p>
+              <div 
+                key={actor.id} 
+                className={styles.actorCard}
+                onClick={() => history.push(`/person/${actor.id}`)}>
+                  <img src={`${imgPrefix}${actor.profile_path}`}></img>
+                  <p>{actor.name}</p>
               </div>
             )
           }
@@ -73,7 +75,8 @@ const MovieDetails = () => {
         <>
           <h2>Full Cast:</h2>
           <div className={styles.fullCast}>
-            {data && data.credits.cast.slice(10).map(actor => <p key={actor.id}>{actor.name}</p>)}
+            {data && data.credits.cast.slice(10).map(actor => 
+              <p key={actor.id} onClick={() => history.push(`/person/${actor.id}`)}>{actor.name}</p>)}
           </div>
         </>}
     </div>

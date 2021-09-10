@@ -5,6 +5,7 @@ import Genres from './pages/Genres';
 import MovieDetails from './pages/MovieDetails';
 import MoviesByGenre from './pages/MoviesByGenre';
 import NowPlaying from './pages/NowPlaying';
+import PersonDetails from './pages/PersonDetails';
 import Popular from './pages/Popular';
 import TopRated from './pages/TopRated';
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/genres/:genreId/:genreName" component={MoviesByGenre} />
         <Route path="/genres" component={Genres} />
         <Route path="/movie/:id" component={MovieDetails} />
+        <Route path="/person/:id" component={PersonDetails} />
       </Switch>
     </div>
   )
