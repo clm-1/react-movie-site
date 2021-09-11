@@ -3,6 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getMoviesByPerson, getPerson } from '../services/MovieAPI';
 import styles from '../css/PersonDetails.module.css';
+import noProfileImg from '../assets/images/no_profileimg.png';
 
 const PersonDetails = () => {
   const { id } = useParams();
@@ -43,7 +44,7 @@ const PersonDetails = () => {
       {data &&
         <div className={styles.personDetailsWrapper}>
           <div className={styles.personDetailsLeft}>
-            <img src={`${imgPrefix}${data.profile_path}`} alt={`${data.name} profile picture`} />
+            <img src={data.profile_path ? `${imgPrefix}${data.profile_path}` : noProfileImg} alt={`${data.name} profile picture`} />
             <div className={styles.personalInfo}>
               <h3>Known for:</h3>
               <p>{data.known_for_department ? data.known_for_department : '-'}</p>

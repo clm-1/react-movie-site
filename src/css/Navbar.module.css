@@ -1,5 +1,6 @@
 .navbarWrapper {
   background-color: rgb(6, 6, 8);
+  border-bottom: 4px solid rgb(63, 66, 85);
 }
 
 .linkWrapper {

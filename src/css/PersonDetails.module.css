@@ -1,7 +1,7 @@
 .personDetailsWrapper {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 1.2rem;
 }
 
 .personDetailsLeft {
@@ -10,7 +10,7 @@
 
 .personDetailsLeft .personalInfo {
   margin-top: 1rem;
-  background-color: rgba(169, 169, 169, 0.24);
+  background-color: rgba(169, 169, 169, 0.150);
   padding: .8rem .6rem;
   border-radius: 5px;
   min-height: 300px;
@@ -30,7 +30,6 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  padding: 1rem 0;
 }
 
 .personDetailsRight h1 {
@@ -63,7 +62,8 @@
 }
 
 .noBio {
-  background-color: rgba(169, 169, 169, 0.24);
+  color: #ddd;
+  background-color: rgba(169, 169, 169, 0.150);
   padding: 5rem 2rem;
   border-radius: 5px;
   margin-bottom: 1rem;
@@ -79,7 +79,7 @@
   align-items: flex-start;
   gap: 1.2rem;
   padding: .7rem .5rem;
-  background-color: rgba(169, 169, 169, 0.24);
+  background-color: rgba(169, 169, 169, 0.150);
   margin-bottom: .5rem;
 }
 
@@ -114,5 +114,8 @@
 }
 
 .bioWrapper {
+  background-color: rgba(169, 169, 169, 0.150);
+  padding: .7rem .8rem;
+  border-radius: 10px;
   margin-bottom: 1rem;
 }
