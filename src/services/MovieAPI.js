@@ -33,3 +33,12 @@ export const getMovie = async (id) => {
   return await get(`/movie/${id}?api_key=${apiKey}&append_to_response=credits`);
 }
 
+// Get person details
+export const getPerson = async (id) => {
+  return await get(`/person/${id}?api_key=${apiKey}&append_to_response=credits`);
+}
+
+export const getMoviesByPerson = async (id) => {
+  return await get(`/discover/movie?api_key=${apiKey}&with_cast=${id}&sort_by=primary_release_date.desc`);
+}
+
