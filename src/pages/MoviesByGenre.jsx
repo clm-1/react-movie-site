@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import MovieList from '../components/MovieList';
 import styles from '../css/MoviesByGenre.module.css';
 
 const MoviesByGenre = () => {
   const { genreId, genreName } = useParams();
+  const [page, setPage] = useState(1);
   const history = useHistory();
 
   const handleBackClick = () => {
@@ -16,11 +17,6 @@ const MoviesByGenre = () => {
       <div className="page-header">
         <span onClick={handleBackClick}>{'<'}</span>
         <h1>{ genreName }</h1>
-      </div>
-      <div className={styles.pageNumberWrapper}>
-        {/* <span>{'<'}</span>
-        <h2>Page</h2>
-        <span>{'>'}</span> */}
       </div>
       <MovieList genre={genreId} />
     </div>

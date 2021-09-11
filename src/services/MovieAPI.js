@@ -12,6 +12,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3'
 // General get-function that will be used by other functions to get more specific data
 const get = async (endpoint) => {
   const response = await axios.get(endpoint);
+  console.log(response);
   return response.data;
 }
 
@@ -24,8 +25,8 @@ export const getGenres = async () => {
   return await get(`/genre/movie/list?api_key=${apiKey}`)
 }
 
-export const getMoviesByGenre = async (genre) => {
-  return await get(`/discover/movie?api_key=${apiKey}&with_genres=${genre}`);
+export const getMoviesByGenre = async (genre, page) => {
+  return await get(`/discover/movie?api_key=${apiKey}&with_genres=${genre}&page=${page}`);
 };
 
 // Get specific movie details
