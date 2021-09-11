@@ -1,14 +1,17 @@
 import React from 'react'
 import { useQuery } from 'react-query';
 import MovieCard from '../components/MovieCard';
-import { getMovies } from '../services/MovieAPI';
+import { getMovies, getMoviesByGenre } from '../services/MovieAPI';
 import styles from '../css/MovieList.module.css';
 
-const MovieList = ({ type }) => {
+const MovieList = ({ type = null, genre = null }) => {
   // React Query gets data based on what type is sent into the component from the parent page (Popular, NowPlaying, TopRated)
-  const { data, error, isError, isLoading } = useQuery(type, () => {
+  const { data, error, isError, isLoading } = useQuery([type, genre], () => {
+    if (genre) return getMoviesByGenre(genre);
     return getMovies(type);
   });
+
+  data && console.log(data);
 
   return (
     <div>

@@ -1,0 +1,17 @@
+.genreCardWrapper {
+  opacity: .9;
+  position: relative;
+  background-color: rgb(67, 80, 94);
+  padding: 1.5rem 1rem;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.404);
+}
+
+.genreCardWrapper:hover {
+  top: -3px;
+  opacity: 1;
+  box-shadow: -1px -1px 10px rgba(216, 214, 214, 0.057), 1px 1px 10px rgba(216, 214, 214, 0.057);
+}

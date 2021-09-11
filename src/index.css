@@ -30,11 +30,31 @@ hr {
   margin: .4rem 0 1rem 0;
 }
 
-h1 {
-  font-weight: 400;
-  font-size: 1.4rem;
+.page-header {
+  display: flex;
   margin-bottom: 1rem;
   background-color: rgb(55, 55, 61);
   padding: .5rem .7rem;
   border-radius: 10px;
+}
+
+.page-header span {
+  background-color: rgb(95, 95, 95);
+  padding: 0 .5rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  margin-right: .9rem;
+  cursor: pointer;
+}
+
+.page-header select {
+  border: none;
+  border-radius: 10px;
+  padding: 0rem .7rem;
+  width: 20%;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 1.4rem;
 }
