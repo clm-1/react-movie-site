@@ -33,8 +33,6 @@ hr {
 .page-header {
   display: flex;
   margin-bottom: 1rem;
-  background-color: rgb(55, 55, 61);
-  padding: .5rem .7rem;
   border-radius: 10px;
 }
 
