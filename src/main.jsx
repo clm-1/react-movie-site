@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import './index.css';
 import App from './App';
+import MovieContextProvider from './contexts/MovieContextProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,8 +20,10 @@ ReactDOM.render(
 
     <QueryClientProvider client={queryClient}>
       <Router>
-        <App />
-        <ReactQueryDevtools />
+        <MovieContextProvider>
+          <App />
+          <ReactQueryDevtools />
+        </MovieContextProvider>
       </Router>
     </QueryClientProvider>
 

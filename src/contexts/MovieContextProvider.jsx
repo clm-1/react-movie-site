@@ -1,11 +1,22 @@
-import React, { createContext } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
+import { getGenres } from '../services/MovieAPI';
 
-const MovieContext = createContext();
+export const MovieContext = createContext();
 
 const MovieContextProvider = ({ children }) => {
+  const [genres, setGenres] = useState(null);
+
+  const getGenresInContext = async () => {
+    let response = await getGenres();
+    setGenres(response.genres);
+  }
+
+  useEffect(() => {
+    getGenresInContext();
+  }, [])
 
   const values = {
-
+    genres
   }
 
   return (

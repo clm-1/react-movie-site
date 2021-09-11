@@ -6,7 +6,7 @@ const GenreCard = ({ genre }) => {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push(`/genres/${genre.id}/${genre.name}`);
+    history.push(`/genres/${genre.id}`);
   }
 
   return (

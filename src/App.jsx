@@ -17,7 +17,7 @@ function App() {
         <Route exact path="/" component={Popular} />
         <Route path="/now-playing" component={NowPlaying} />
         <Route path="/top-rated" component={TopRated} />
-        <Route path="/genres/:genreId/:genreName" component={MoviesByGenre} />
+        <Route path="/genres/:genreId" component={MoviesByGenre} />
         <Route path="/genres" component={Genres} />
         <Route path="/movie/:id" component={MovieDetails} />
         <Route path="/people/:id" component={PersonDetails} />

@@ -17,8 +17,8 @@ const get = async (endpoint) => {
 }
 
 // Get movie-lists based on type (popular, now_playing or top_rated)
-export const getMovies = async (type) => {
-  return await get(`/movie/${type}?api_key=${apiKey}&region=${reg}`);
+export const getMovies = async (type, page) => {
+  return await get(`/movie/${type}?api_key=${apiKey}&page=${page}&region=${reg}`);
 };
 
 export const getGenres = async () => {
