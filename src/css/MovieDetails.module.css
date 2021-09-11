@@ -5,8 +5,8 @@
 
 .movieDetailsHeader img {
   align-self: center;
-  width: 35%;
-  border-radius: 10px 0 0 10px;
+  width: 33%;
+  border-radius: 10px;
 }
 
 .movieDetailsHeader h1 {
@@ -14,9 +14,8 @@
   text-shadow: 2px 2px 2px black;
 }
 
-h2 {
+.detailsPageWrapper h2 {
   font-size: 1.4rem;
-  margin-top: 1.8rem;
 }
 
 .movieDetailsHeader h2 {
@@ -29,6 +28,12 @@ h2 {
 .movieDetailsHeader p {
   margin-bottom: 1rem;
   text-shadow: 2px 2px 2px black;
+}
+
+.headerInfoWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
 }
 
 .headerText {
@@ -92,6 +97,7 @@ h2 {
 
 .actorsWrapper {
   margin-top: .7rem;
+  margin-bottom: 1.5rem;
   max-width: 100%;
   display: grid;
   gap: 1rem;

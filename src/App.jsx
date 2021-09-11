@@ -20,7 +20,7 @@ function App() {
         <Route path="/genres/:genreId/:genreName" component={MoviesByGenre} />
         <Route path="/genres" component={Genres} />
         <Route path="/movie/:id" component={MovieDetails} />
-        <Route path="/person/:id" component={PersonDetails} />
+        <Route path="/people/:id" component={PersonDetails} />
       </Switch>
     </div>
   )

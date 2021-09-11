@@ -25,26 +25,28 @@ const MovieDetails = () => {
       <div className={styles.movieDetailsHeader}>
         <div className={styles.headerOverlay}></div>
         <img className={styles.coverImg} src={`${coverImgPrefix}${data.backdrop_path}`} alt="" />
-        <img src={`${imgPrefix}${data.poster_path}`} alt={`${data.title} poster`} />
-        <div className={styles.headerText}>
-          <div className={styles.headerTitle}>
-            <h1>{data.title} <span className={styles.releaseYear}>({data.release_date.slice(0, 4)})</span></h1>
-          </div>
-          <div className={styles.headerInfo}>
-            <p>{genreString}</p>
-            <p>-</p>
-            <p>{data.runtime} min</p>
-          </div>
-          <div className={styles.score}>
-            <span>{data.vote_average}</span>
-          </div>
-          <div className={styles.headerOverview}>
-            <h2>Overview:</h2>
-            <p>{data.overview}</p>
-          </div>
-          <div className={styles.headerDirector}>
-            <h2>Director:</h2>
-            <p>{data.credits.crew.find(person => person.job === 'Director').name}</p>
+        <div className={`${styles.headerInfoWrapper} page-container`}>
+          <img src={`${imgPrefix}${data.poster_path}`} alt={`${data.title} poster`} />
+          <div className={styles.headerText}>
+            <div className={styles.headerTitle}>
+              <h1>{data.title} <span className={styles.releaseYear}>({data.release_date.slice(0, 4)})</span></h1>
+            </div>
+            <div className={styles.headerInfo}>
+              <p>{genreString}</p>
+              <p>-</p>
+              <p>{data.runtime} min</p>
+            </div>
+            <div className={styles.score}>
+              <span>{data.vote_average}</span>
+            </div>
+            <div className={styles.headerOverview}>
+              <h2>Overview:</h2>
+              <p>{data.overview}</p>
+            </div>
+            <div className={styles.headerDirector}>
+              <h2>Director:</h2>
+              <p>{data.credits.crew.find(person => person.job === 'Director').name}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -52,33 +54,35 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className="page-container">
+    <div className={`${styles.detailsPageWrapper}`}>
       {isLoading && <p>Loading...</p>}
       {data && renderHeader()}
-      <h2>Cast:</h2>
-      <div className={styles.actorsWrapper}>
-        {data && data.credits.cast.slice(0, 10).map(actor => {
-          if (actor.profile_path !== null) {
-            return (
-              <div 
-                key={actor.id} 
-                className={styles.actorCard}
-                onClick={() => history.push(`/person/${actor.id}`)}>
+      <div className="page-container">
+        <h2>Cast:</h2>
+        <div className={styles.actorsWrapper}>
+          {data && data.credits.cast.slice(0, 10).map(actor => {
+            if (actor.profile_path !== null) {
+              return (
+                <div
+                  key={actor.id}
+                  className={styles.actorCard}
+                  onClick={() => history.push(`/people/${actor.id}`)}>
                   <img src={`${imgPrefix}${actor.profile_path}`}></img>
                   <p>{actor.name}</p>
-              </div>
-            )
-          }
-        })}
+                </div>
+              )
+            }
+          })}
+        </div>
+        {data && data.credits.cast.length > 10 &&
+          <>
+            <h2>Full Cast:</h2>
+            <div className={styles.fullCast}>
+              {data && data.credits.cast.slice(10).map(actor =>
+                <p key={actor.id} onClick={() => history.push(`/person/${actor.id}`)}>{actor.name}</p>)}
+            </div>
+          </>}
       </div>
-      {data && data.credits.cast.length > 10 &&
-        <>
-          <h2>Full Cast:</h2>
-          <div className={styles.fullCast}>
-            {data && data.credits.cast.slice(10).map(actor => 
-              <p key={actor.id} onClick={() => history.push(`/person/${actor.id}`)}>{actor.name}</p>)}
-          </div>
-        </>}
     </div>
   )
 }
