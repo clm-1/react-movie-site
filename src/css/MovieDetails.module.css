@@ -89,7 +89,6 @@
   background-color: rgb(19, 19, 24);
   z-index: -1;
   opacity: .6;
-  border-radius: 10px;
 }
 
 .movieDetailsHeader .coverImg {
@@ -99,7 +98,6 @@
   object-fit: cover;
   z-index: -2;
   opacity: .2;
-  border-radius: 10px;
 }
 
 .actorsWrapper {
@@ -108,7 +106,7 @@
   border-radius: 10px;
   max-width: 100%;
   display: grid;
-  gap: .5rem;
+  gap: .7rem;
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.137);
   grid-template-columns: repeat(2, 1fr);
 }
@@ -160,7 +158,7 @@
   padding: .7rem;
 }
 
-@media screen and (min-width: 430px) {
+@media screen and (min-width: 440px) {
   .actorsWrapper {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -180,10 +178,11 @@
     flex-direction: row;
   }
 
-  .movieDetailsHeader img {
-    padding-top: 1.5rem;
+  .movieDetailsHeader img.poster {
+    position: relative;
     align-self: flex-start;
     width: 33%;
+    top: 1.7rem;
   }
 
   .movieDetailsHeader h1 {
@@ -230,14 +229,6 @@
 }
 
 @media screen and (min-width: 650px) {
-  .actorsWrapper {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  .fullCast {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
   .headerInfo {
     margin-top: 0;
     font-size: 1.1rem;
@@ -246,8 +237,17 @@
 }
 
 @media screen and (min-width: 750px) {
+  .actorsWrapper {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
   .movieDetailsHeader h1 {
     font-size: 2.2rem;
+  }
+
+  .movieDetailsHeader img.poster {
+    top: 0;
+    align-self: center;
   }
 
   .releaseYear {
@@ -265,5 +265,9 @@
   .headerInfo {
     font-size: 1rem;
     flex-direction: row;
+  }
+
+  .fullCast {
+    grid-template-columns: repeat(4, 1fr);
   }
 }

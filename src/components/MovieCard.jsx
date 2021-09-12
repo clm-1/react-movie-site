@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import noPoster from '../assets/images/no_poster.png';
 import styles from '../css/MovieCard.module.css';
 
 const MovieCard = ({ movie }) => {
@@ -12,7 +13,7 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div onClick={handleCardClick} className={styles.movieCardWrapper}>
-      <img src={`${imgPrefix}${movie.poster_path}`} alt="poster" />
+      <img src={movie.poster_path ? `${imgPrefix}${movie.poster_path}` : noPoster} alt="poster" />
       <h2>{ movie.title.length < 23 ? movie.title : `${movie.title.slice(0, 23)}...` }</h2>
     </div>
   )

@@ -31,7 +31,7 @@ const MovieDetails = () => {
         <div className={styles.headerOverlay}></div>
         <img className={styles.coverImg} src={data.backdrop_path && `${coverImgPrefix}${data.backdrop_path}`} alt="" />
         <div className={`${styles.headerInfoWrapper} page-container`}>
-          <img src={data.poster_path ? `${imgPrefix}${data.poster_path}` : noPoster} alt={`${data.title} poster`} />
+          <img className={styles.poster} src={data.poster_path ? `${imgPrefix}${data.poster_path}` : noPoster} alt={`${data.title} poster`} />
           <div className={styles.headerText}>
             <div className={styles.headerTitle}>
               <h1>{data.title} <span className={styles.releaseYear}>{data.release_date && `(${data.release_date.slice(0, 4)})`}</span></h1>

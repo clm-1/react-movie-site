@@ -15,6 +15,7 @@ const PersonDetails = () => {
     return getMoviesByPerson(id);
   })
   const [readMore, setReadMore] = useState(false);
+  const [moreNames, setMoreNames] = useState(false);
   const imgPrefix = 'https://image.tmdb.org/t/p/w500';
   const history = useHistory();
 
@@ -38,6 +39,22 @@ const PersonDetails = () => {
     credits = [...creditsPlanned, ...credits];
   }
 
+  const renderAlsoKnownAs = () => {
+    const numOfNames = moreNames ? data.also_known_as.length : 3;
+    const button = !moreNames ? 
+      <button onClick={() => setMoreNames(true)}>Read More {`>`}</button> : 
+      <button onClick={() => setMoreNames(false)}>Read Less {`>`}</button>
+
+    return (
+      <>
+        { data.also_known_as.slice(0, numOfNames).map((name, i) => 
+          <p key={i}>{name}</p>
+        )}
+        { data.also_known_as.length > 3 && button }
+      </>
+    )
+  }
+
   data && console.log(data);
 
   return (
@@ -47,6 +64,7 @@ const PersonDetails = () => {
         <div className={styles.personDetailsWrapper}>
           <div className={styles.personDetailsLeft}>
             <img src={data.profile_path ? `${imgPrefix}${data.profile_path}` : noProfileImg} alt={`${data.name} profile picture`} />
+            <h1 className={styles.mobile}>{ data.name }</h1>
             <div className={styles.personalInfo}>
               <h3>Known for:</h3>
               <p>{data.known_for_department ? data.known_for_department : '-'}</p>
@@ -55,11 +73,11 @@ const PersonDetails = () => {
               <h3>Place of birth:</h3>
               <p>{data.place_of_birth ? data.place_of_birth : '-'}</p>
               <h3>Also known as:</h3>
-              {data.also_known_as.length > 0 ? data.also_known_as.map((name, i) => <p key={i}>{name}</p>) : '-'}
+              {data.also_known_as.length > 0 ? renderAlsoKnownAs() : '-'}
             </div>
           </div>
           <div className={styles.personDetailsRight}>
-            <h1>{data.name}</h1>
+            <h1 className={styles.desktop}>{data.name}</h1>
             <h2>Biography:</h2>
             {data.biography ?
               <div className={styles.bioWrapper}>
@@ -75,12 +93,8 @@ const PersonDetails = () => {
                 <div key={i} onClick={() => history.push(`/movie/${credit.id}`)} className={styles.creditWrapper}>
                   <p className={styles.releaseDate}>{credit.release_date ? credit.release_date.slice(0, 4) : '-'}</p>
                   <div className={styles.titleAndChar}>
-                    <p className={styles.creditTitle}>{credit.title}</p>
-                    {credit.character &&
-                      <>
-                        <p className={styles.asChar}>as</p>
-                        <p className={styles.charName}>{credit.character}</p>
-                      </>}
+                    <p className={styles.creditTitle}>{ credit.title } </p>
+                    <p className={styles.charName}>{ credit.character }</p>
                   </div>
                 </div>
               ))}

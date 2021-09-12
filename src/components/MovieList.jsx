@@ -30,7 +30,7 @@ const MovieList = ({ type = null, genre = null }) => {
 
   return (
     <div>
-      {/* {isLoading && <Loading />} */}
+      {isLoading && <Loading />}
       {isError && <PageNotFound />}
 
       {/* Check if we have results and that num of results are above 0 */}
