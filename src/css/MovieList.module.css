@@ -1,6 +1,6 @@
 .listWrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
@@ -36,4 +36,16 @@
 
 .pageNumberWrapper button:active {
   box-shadow: none;
+}
+
+@media screen and (min-width: 550px) {
+  .listWrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }  
+}
+
+@media screen and (min-width: 700px) {
+  .listWrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }  
 }

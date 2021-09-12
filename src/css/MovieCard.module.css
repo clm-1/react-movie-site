@@ -15,11 +15,15 @@
 
 .movieCardWrapper img {
   width: 100%;
-  min-height: 345px;
   border-radius: 10px 10px 0 0;
 }
 
 .movieCardWrapper h2 {
   font-size: .9rem;
   padding: .6rem;
+}
+
+@media screen and (min-width: 700px) {
+  .movieCardWrapper img {
+  }
 }
