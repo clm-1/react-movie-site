@@ -1,6 +1,60 @@
 .footerWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 2rem;
+  padding: 2rem;
   min-height: 200px;
   background-color: rgb(6, 6, 8);
   border-top: 2px solid rgb(63, 66, 85);
+}
+
+.footerWrapper h3 {
+  font-size: 2.2rem;
+  color: rgb(160, 239, 253);
+}
+
+.footerWrapper .info {
+  font-size: .9rem;
+  font-style: italic;
+  margin-top: .7rem;
+  opacity: .8;
+}
+
+.footerWrapper a {
+  font-size: .78rem;
+  margin-bottom: .5rem;
+  color: white;
+  opacity: .6;
+  text-decoration: none;
+  font-style: italic;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.footerLinks a {
+  opacity: 1;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.footerWrapper button {
+  cursor: pointer;
+  box-shadow: 0px 2px 5px black;
+  position: absolute;
+  top: -25px;
+  font-size: 1.2rem;
+  color: rgb(160, 239, 253);
+  background-color: rgb(57, 57, 66);
+  border-radius: 50%;
+  border: none;
+  padding: .9rem;
+}
+
+.footerWrapper button:hover {
+  background-color: rgb(68, 68, 78);
 }
