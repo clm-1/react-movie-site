@@ -32,7 +32,7 @@ hr {
 }
 
 .page-header {
-  display: flex;
+  display: none;
   margin-bottom: 1rem;
   border-radius: 10px;
 }
@@ -56,4 +56,10 @@ hr {
 h1 {
   font-weight: 400;
   font-size: 1.4rem;
+}
+
+@media screen and (min-width: 550px) {
+  .page-header {
+    display: flex;
+  }
 }

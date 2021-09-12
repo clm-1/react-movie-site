@@ -15,20 +15,13 @@ const Navbar = () => {
   }
 
   useEffect(() => {
+    console.log(location.pathname)
+    // Check pathname to set title of page in menu
+    // If pathname is other than below, push to start page
+    if (location.pathname === '/') return setCurrentPage('Popular');
+    if (location.pathname.includes('now-playing')) return setCurrentPage('Now Playing');
+    if (location.pathname.includes('top-rated')) return setCurrentPage('Top Rated');
     if (location.pathname.includes('genres')) return setCurrentPage('Genres');
-    switch (location.pathname) {
-      case '/':
-        setCurrentPage('Popular');
-        break;
-      case '/now-playing':
-        setCurrentPage('Now Playing');
-        break;
-      case '/top-rated':
-        setCurrentPage('Top Rated');
-        break;
-      default:
-        history.push('/');
-    }
   }, [location.pathname])
 
   return (
