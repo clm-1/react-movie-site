@@ -85,8 +85,40 @@ a.activeLink {
   height: 100%;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 550px) {
+  .hideLinks {
+    display: initial;
+  }
+
+  .linkDropdown {
+    width: initial;
+  }
+
+  .navLinks {
+    position: relative;
+    flex-direction: row;
+    background: none;
+    border: none;
+    box-shadow: none;
+    gap: 0;
+  }
+
   .linkWrapper {
+    gap: 1rem;
+    margin-bottom: .4rem;
     justify-content: space-between;
+  }
+
+  .linkWrapper button {
+    width: 100%;
+    display: none;
+    pointer-events: none;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .linkWrapper {
+    margin-bottom: 0;
+    flex-direction: row;
   }
 }
