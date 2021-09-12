@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 const GenreCard = ({ genre }) => {
   const history = useHistory();
 
+  // Send user to the genre with the correct id on click
   const handleClick = () => {
     history.push(`/genres/${genre.id}`);
   }

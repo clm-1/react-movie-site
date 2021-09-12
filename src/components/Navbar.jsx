@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation, useHistory } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import styles from '../css/Navbar.module.css'
 
 const Navbar = () => {
@@ -8,8 +8,8 @@ const Navbar = () => {
   const [currentPage, setCurrentPage] = useState('Popular');
 
   const location = useLocation();
-  const history = useHistory();
 
+  // Hide links when clicked
   const handleLinkClick = (e) => {
     setShowLinks(false);
   }
@@ -31,6 +31,7 @@ const Navbar = () => {
       <div className={styles.linkWrapper}>
         <Link to="/" className={styles.logo}>goodfilms</Link>
         <div className={styles.linkDropdown}>
+          {/* Show and hide links in navbar on mobile */}
           <button onClick={() => setShowLinks(!showLinks)}>{currentPage}{!showLinks ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}</button>
           <div onClick={handleLinkClick} className={`${styles.navLinks} ${!showLinks && styles.hideLinks}`}>
             <NavLink exact to="/" activeClassName={styles.activeLink}>
