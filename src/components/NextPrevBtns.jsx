@@ -11,7 +11,7 @@ const NextPrevBtns = ({ page, totalPages, setParams }) => {
         if (+page !== 1) {
           setParams({ page: +page - 1 });
         }
-      }}>{'<'}</button>
+      }}>{<i className="fas fa-chevron-circle-left"></i>}</button>
       <h2>Page: {page} / {totalPages && totalPages}</h2>
       <button disabled={+page >= totalPages} onClick={() => {
         if (+page >= totalPages) {
@@ -19,7 +19,7 @@ const NextPrevBtns = ({ page, totalPages, setParams }) => {
         } else {
           setParams({ page: +page + 1 })
         }
-      }}>{'>'}</button>
+      }}>{<i className="fas fa-chevron-circle-right"></i>}</button>
     </div>
   )
 }

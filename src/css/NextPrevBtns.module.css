@@ -15,19 +15,12 @@
 }
 
 .pageNumberWrapper button {
-  cursor: pointer;
-  font-size: 1.2rem;
-  background-color: rgb(117, 121, 124);
-  padding: .4rem .7rem;
-  border-radius: 50%;
+  background: none;
   border: none;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.452);
+  cursor: pointer;
 }
 
-.pageNumberWrapper button:hover {
-  background-color: rgb(120, 124, 128);
-}
-
-.pageNumberWrapper button:active {
-  box-shadow: none;
+.pageNumberWrapper i {
+  color: rgb(139, 136, 136);
+  font-size: 2rem;
 }

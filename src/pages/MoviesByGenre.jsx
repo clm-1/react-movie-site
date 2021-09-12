@@ -2,6 +2,7 @@ import React, { useEffect, useContext, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import MovieList from '../components/MovieList';
 import { MovieContext } from '../contexts/MovieContextProvider';
+import styles from '../css/MoviesByGenre.module.css';
 
 const MoviesByGenre = () => {
   const { genreId } = useParams();
@@ -21,8 +22,8 @@ const MoviesByGenre = () => {
 
   return (
     <div className="page-container">
-      <div className="page-header">
-        <span onClick={handleBackClick}>{'<'}</span>
+      <div className={`page-header ${styles.genreHeader}`}>
+        <button onClick={handleBackClick}>{<i className="fas fa-angle-left"></i>}</button>
         <h1>{ genreName ? genreName : 'Unknown' }</h1>
       </div>
       <MovieList genre={genreId} />
