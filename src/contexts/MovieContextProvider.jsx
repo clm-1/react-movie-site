@@ -16,7 +16,7 @@ const MovieContextProvider = ({ children }) => {
   }, [])
 
   const values = {
-    genres
+    genres,
   }
 
   return (
