@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { getMoviesByPerson, getPerson } from '../services/MovieAPI';
 import styles from '../css/PersonDetails.module.css';
 import noProfileImg from '../assets/images/no_profileimg.png';
+import Loading from '../components/Loading';
 
 const PersonDetails = () => {
   const { id } = useParams();
@@ -41,6 +42,7 @@ const PersonDetails = () => {
 
   return (
     <div className="page-container">
+      {isLoading && <Loading />}
       {data &&
         <div className={styles.personDetailsWrapper}>
           <div className={styles.personDetailsLeft}>
@@ -59,26 +61,26 @@ const PersonDetails = () => {
           <div className={styles.personDetailsRight}>
             <h1>{data.name}</h1>
             <h2>Biography:</h2>
-            { data.biography ? 
-            <div className={styles.bioWrapper}>
-            {data.biography.length > 700 ?
-              <>
-                <p>{readMore ? data.biography : data.biography.slice(0, 700) + '...'}</p>
-                <p className={styles.readMore} onClick={() => setReadMore(!readMore)}>{readMore ? 'Read Less' : 'Read More'} {'>'}</p>
-              </> : <p>{data.biography}</p>}
-          </div> : <div className={styles.noBio}>There is no bio for this person yet</div>}
+            {data.biography ?
+              <div className={styles.bioWrapper}>
+                {data.biography.length > 700 ?
+                  <>
+                    <p>{readMore ? data.biography : data.biography.slice(0, 700) + '...'}</p>
+                    <p className={styles.readMore} onClick={() => setReadMore(!readMore)}>{readMore ? 'Read Less' : 'Read More'} {'>'}</p>
+                  </> : <p>{data.biography}</p>}
+              </div> : <div className={styles.noBio}>There is no bio for this person yet</div>}
             <h2>Actor:</h2>
             <div className={styles.actingCredits}>
-              { credits.map((credit, i) => (
+              {credits.map((credit, i) => (
                 <div key={i} onClick={() => history.push(`/movie/${credit.id}`)} className={styles.creditWrapper}>
-                  <p className={styles.releaseDate}>{ credit.release_date ? credit.release_date.slice(0, 4) : '-' }</p>
+                  <p className={styles.releaseDate}>{credit.release_date ? credit.release_date.slice(0, 4) : '-'}</p>
                   <div className={styles.titleAndChar}>
-                  <p className={styles.creditTitle}>{ credit.title }</p>
-                  { credit.character && 
-                    <>
-                    <p className={styles.asChar}>as</p>
-                    <p className={styles.charName}>{ credit.character }</p>
-                    </>}
+                    <p className={styles.creditTitle}>{credit.title}</p>
+                    {credit.character &&
+                      <>
+                        <p className={styles.asChar}>as</p>
+                        <p className={styles.charName}>{credit.character}</p>
+                      </>}
                   </div>
                 </div>
               ))}
