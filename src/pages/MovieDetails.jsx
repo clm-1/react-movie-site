@@ -5,6 +5,8 @@ import { useQuery } from 'react-query';
 import { getMovie } from '../services/MovieAPI';
 import noPoster from '../assets/images/no_poster.png';
 import noProfileImg from '../assets/images/no_profileimg.png';
+import Loading from '../components/Loading';
+import PageNotFound from '../components/PageNotFound';
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -64,32 +66,37 @@ const MovieDetails = () => {
 
   return (
     <div className={`${styles.detailsPageWrapper}`}>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading />}
+      {isError && <PageNotFound />}
       {data && renderHeader()}
       <div className="page-container">
-        <h2>Top Cast:</h2>
-        <div className={styles.actorsWrapper}>
-          {data && data.credits.cast.slice(0, 10).map((actor, i) => (
-            <div
-              key={i}
-              className={styles.actorCard}
-              onClick={() => history.push(`/people/${actor.id}`)}>
-              <img src={actor.profile_path ? `${imgPrefix}${actor.profile_path}` : noProfileImg}></img>
-              <p>{actor.name}</p>
-            </div>
-          ))}
-        </div>
-        {data && data.credits.cast.length > 10 &&
+        {data &&
           <>
-            <h2>Full Cast:</h2>
-            <div className={styles.fullCast}>
-            {data.credits.cast.slice(10).map((actor, i) => (
-              <div key={i} className={styles.castCardSmall}>
-                <img src={actor.profile_path ? `${imgPrefix}${actor.profile_path}` : noProfileImg} alt="" />
-                <p key={i} onClick={() => history.push(`/people/${actor.id}`)}>{actor.name}</p>
-              </div>
-            ))}
+            <h2>Top Cast:</h2>
+            <div className={styles.actorsWrapper}>
+              {data && data.credits.cast.slice(0, 10).map((actor, i) => (
+                <div
+                  key={i}
+                  className={styles.actorCard}
+                  onClick={() => history.push(`/people/${actor.id}`)}>
+                  <img src={actor.profile_path ? `${imgPrefix}${actor.profile_path}` : noProfileImg}></img>
+                  <p>{actor.name}</p>
+                </div>
+              ))}
             </div>
+            {data && data.credits.cast.length > 10 &&
+              <>
+                <h2>Full Cast:</h2>
+                <div className={styles.fullCast}>
+                  {data.credits.cast.slice(10).map((actor, i) => (
+                    <div key={i} className={styles.castCardSmall}>
+                      <img src={actor.profile_path ? `${imgPrefix}${actor.profile_path}` : noProfileImg} alt="" />
+                      <p key={i} onClick={() => history.push(`/people/${actor.id}`)}>{actor.name}</p>
+                    </div>
+                  ))}
+                </div>
+              </>
+              }
           </>}
       </div>
     </div>

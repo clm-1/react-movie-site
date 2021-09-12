@@ -1,0 +1,26 @@
+.pageNumberWrapper {
+  margin: 1rem 0;
+  background-color: rgba(169, 169, 169, 0.150);
+  padding: .5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  align-items: center;
+}
+
+.pageNumberWrapper h2 {
+  opacity: .6;
+  font-size: 1rem;
+}
+
+.pageNumberWrapper button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.pageNumberWrapper i {
+  color: rgb(139, 136, 136);
+  font-size: 2rem;
+}
