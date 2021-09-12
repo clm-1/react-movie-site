@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbarWrapper}>
       <div className={styles.linkWrapper}>
-        <Link to="/" className={styles.logo}>MOVIE DB</Link>
+        <Link to="/" className={styles.logo}>goodfilms</Link>
         <div className={styles.navLinks}>
           <NavLink exact to="/" activeClassName={styles.activeLink}>
             Popular

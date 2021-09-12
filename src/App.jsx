@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Genres from './pages/Genres';
 import MovieDetails from './pages/MovieDetails';
@@ -22,6 +23,7 @@ function App() {
         <Route path="/movie/:id" component={MovieDetails} />
         <Route path="/people/:id" component={PersonDetails} />
       </Switch>
+      <Footer />
     </div>
   )
 }

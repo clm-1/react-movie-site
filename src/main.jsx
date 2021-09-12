@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 import './index.css';
 import App from './App';
 import MovieContextProvider from './contexts/MovieContextProvider';
+import ScrollToTop from './components/ScrollToTop';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,6 +21,7 @@ ReactDOM.render(
 
     <QueryClientProvider client={queryClient}>
       <Router>
+        <ScrollToTop />
         <MovieContextProvider>
           <App />
           <ReactQueryDevtools />
