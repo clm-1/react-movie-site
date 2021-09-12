@@ -7,19 +7,19 @@ import styles from '../css/NextPrevBtns.module.css';
 const NextPrevBtns = ({ page, totalPages, setParams }) => {
   return (
     <div className={styles.pageNumberWrapper}>
-      <button disabled={page === '1'} onClick={() => {
+      <button className="fas fa-chevron-circle-left" disabled={page === '1'} onClick={() => {
         if (+page !== 1) {
           setParams({ page: +page - 1 });
         }
-      }}>{<i className="fas fa-chevron-circle-left"></i>}</button>
+      }}></button>
       <h2>Page: {page} / {totalPages && totalPages}</h2>
-      <button disabled={+page >= totalPages} onClick={() => {
+      <button className="fas fa-chevron-circle-right" disabled={+page >= totalPages} onClick={() => {
         if (+page >= totalPages) {
           return;
         } else {
           setParams({ page: +page + 1 })
         }
-      }}>{<i className="fas fa-chevron-circle-right"></i>}</button>
+      }}></button>
     </div>
   )
 }

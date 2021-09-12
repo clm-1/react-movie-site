@@ -18,9 +18,15 @@
   background: none;
   border: none;
   cursor: pointer;
-}
-
-.pageNumberWrapper i {
   color: rgb(139, 136, 136);
   font-size: 2rem;
+  opacity: .9;
+}
+
+.pageNumberWrapper button:hover {
+  opacity: 1;
+}
+
+.pageNumberWrapper button:disabled {
+  opacity: .5;
 }
