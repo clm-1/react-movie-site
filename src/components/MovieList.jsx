@@ -7,6 +7,7 @@ import MovieCard from '../components/MovieCard';
 import PageNotFound from './PageNotFound';
 import styles from '../css/MovieList.module.css';
 import NextPrevBtns from './NextPrevBtns';
+import Loading from './Loading';
 
 const MovieList = ({ type = null, genre = null }) => {
   // Using url search params to keep track of current page
@@ -30,7 +31,7 @@ const MovieList = ({ type = null, genre = null }) => {
 
   return (
     <div>
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <Loading />}
       {isError && <PageNotFound />}
 
       {/* Check if we have results and that num of results are above 0 */}
