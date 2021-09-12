@@ -14,11 +14,11 @@ const MovieList = ({ type = null, genre = null }) => {
   const [params, setParams] = useUrlSearchParams({ page: 1 });
 
   // React Query gets data based on what type is sent into the component from the parent page (Popular, NowPlaying, TopRated)
-  const { data, error, isError, isLoading } = useQuery([type, genre, params.page], () => {
+  const { data, error, isError, isLoading, isPreviousData } = useQuery([type, genre, params.page], () => {
     if (genre) return getMoviesByGenre(genre, params.page);
     console.log('page in list:', params.page)
     return getMovies(type, params.page);
-  });
+  }, { keepPreviousData: true });
 
   useEffect(() => {
     // Check page in params
@@ -30,20 +30,20 @@ const MovieList = ({ type = null, genre = null }) => {
 
   return (
     <div>
-      {isLoading && <Loading />}
+      {/* {isLoading && <Loading />} */}
       {isError && <PageNotFound />}
 
       {/* Check if we have results and that num of results are above 0 */}
       {/* Render the buttons at top and bottom of list */}
       {data && data.results.length > 0 &&
         <>
-          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages}/>
+          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages} isPreviousData={isPreviousData}/>
           <div className={styles.listWrapper}>
             {data.results.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
-          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages}/>
+          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages} isPreviousData={isPreviousData}/>
         </>}
 
       {/* If page does not exists the array with results will be empty */}
