@@ -19,9 +19,6 @@ const MovieDetails = () => {
   const imgPrefix = 'https://image.tmdb.org/t/p/w500';
   const coverImgPrefix = 'https://image.tmdb.org/t/p/original';
 
-  data && console.log(data.credits.crew.find(person => person.job === 'Director'))
-  data && console.log(data);
-
   const renderHeader = () => {
     // Create string of all genres 
     const genreString = data.genres.map(genre => (
@@ -40,10 +37,10 @@ const MovieDetails = () => {
               <h1>{data.title} <span className={styles.releaseYear}>{data.release_date && `(${data.release_date.slice(0, 4)})`}</span></h1>
             </div>
             <div className={styles.headerInfo}>
-              <p>{genreString}</p>
+              <p className={styles.genres}>{genreString}</p>
               {data.runtime > 0 &&
                 <div className={styles.runtime}>
-                  <p>-</p>
+                  <p className={styles.hide}>-</p>
                   <p>{data.runtime} min</p>
                 </div>}
             </div>
@@ -96,7 +93,7 @@ const MovieDetails = () => {
                   ))}
                 </div>
               </>
-              }
+            }
           </>}
       </div>
     </div>

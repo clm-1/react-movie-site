@@ -22,8 +22,3 @@
   font-size: .9rem;
   padding: .6rem;
 }
-
-@media screen and (min-width: 700px) {
-  .movieCardWrapper img {
-  }
-}
