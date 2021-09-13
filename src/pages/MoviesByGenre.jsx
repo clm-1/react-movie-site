@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import MovieList from '../components/MovieList';
 import { MovieContext } from '../contexts/MovieContextProvider';
+import MovieList from '../components/MovieList';
 import styles from '../css/MoviesByGenre.module.css';
 
 const MoviesByGenre = () => {
@@ -22,9 +22,9 @@ const MoviesByGenre = () => {
 
   return (
     <div className="page-container">
-      <div className={`page-header ${styles.genreHeader}`}>
+      <div className={`page-header genre-header ${styles.genreHeader}`}>
         <button onClick={handleBackClick}>{<i className="fas fa-angle-left"></i>}</button>
-        <h1>{ genreName ? genreName : 'Unknown' }</h1>
+        <h1 className="genreh1">{ genreName ? genreName : 'Unknown' }</h1>
       </div>
       <MovieList genre={genreId} />
     </div>

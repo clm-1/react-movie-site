@@ -14,8 +14,9 @@
 }
 
 .movieCardWrapper img {
+  object-fit: cover;
   width: 100%;
-  min-height: 345px;
+  max-height: 345px;
   border-radius: 10px 10px 0 0;
 }
 

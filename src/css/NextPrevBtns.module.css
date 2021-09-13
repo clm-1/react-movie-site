@@ -5,13 +5,12 @@
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
-  gap: 5rem;
   align-items: center;
 }
 
 .pageNumberWrapper h2 {
   opacity: .6;
-  font-size: 1rem;
+  font-size: .8rem;
 }
 
 .pageNumberWrapper button {
@@ -19,7 +18,7 @@
   border: none;
   cursor: pointer;
   color: rgb(139, 136, 136);
-  font-size: 2rem;
+  font-size: 1.6rem;
   opacity: .9;
 }
 
@@ -29,4 +28,14 @@
 
 .pageNumberWrapper button:disabled {
   opacity: .5;
+}
+
+@media screen and (min-width: 500px) {
+  .pageNumberWrapper h2 {
+    font-size: 1rem;
+  }
+
+  .pageNumberWrapper button {
+    font-size: 2rem;
+  }
 }

@@ -13,12 +13,14 @@ const MovieList = ({ type = null, genre = null }) => {
   // Using url search params to keep track of current page
   const [params, setParams] = useUrlSearchParams({ page: 1 });
 
-  // React Query gets data based on what type is sent into the component from the parent page (Popular, NowPlaying, TopRated)
-  const { data, error, isError, isLoading } = useQuery([type, genre, params.page], () => {
+  // React Query gets data based on what type is sent into the component from the parent page (will be popular, now-playing or top-rated)
+  // If genre is sent in, it will use that function instead
+  const { data, isError, isLoading, isPreviousData } = useQuery([type, genre, params.page], () => {
     if (genre) return getMoviesByGenre(genre, params.page);
     console.log('page in list:', params.page)
     return getMovies(type, params.page);
-  });
+  }, { keepPreviousData: true });
+  // Keep previous data to see old data while loading new data
 
   useEffect(() => {
     // Check page in params
@@ -26,7 +28,7 @@ const MovieList = ({ type = null, genre = null }) => {
     if (isNaN(+params.page) || params.page <= 0) setParams({ page: 1 });
   }, [params.page])
 
-  data && console.log(data);
+  data && console.log('data', data);
 
   return (
     <div>
@@ -37,13 +39,14 @@ const MovieList = ({ type = null, genre = null }) => {
       {/* Render the buttons at top and bottom of list */}
       {data && data.results.length > 0 &&
         <>
-          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages}/>
+          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages} isPreviousData={isPreviousData}/>
+          {/* List out all movies found for this page / genre */}
           <div className={styles.listWrapper}>
             {data.results.map((movie, i) => (
               <MovieCard key={i} movie={movie} />
             ))}
           </div>
-          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages}/>
+          <NextPrevBtns page={params.page} setParams={setParams} totalPages={data.total_pages} isPreviousData={isPreviousData}/>
         </>}
 
       {/* If page does not exists the array with results will be empty */}
