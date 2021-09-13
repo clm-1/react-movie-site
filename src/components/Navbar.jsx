@@ -15,7 +15,6 @@ const Navbar = () => {
   }
 
   useEffect(() => {
-    console.log(location.pathname)
     // Check pathname to set title of page in menu
     // If pathname is other than below, push to start page
     if (location.pathname === '/') return setCurrentPage('Popular');
@@ -45,6 +44,9 @@ const Navbar = () => {
             </NavLink>
             <NavLink to="/genres" activeClassName={styles.activeLink}>
               Genres
+            </NavLink>
+            <NavLink to="/search" activeClassName={styles.activeLink}>
+              Search
             </NavLink>
           </div>
         </div>

@@ -107,7 +107,6 @@
   max-width: 100%;
   display: grid;
   gap: .7rem;
-  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.137);
   grid-template-columns: repeat(2, 1fr);
 }
 
@@ -127,6 +126,7 @@
 
 .fullCast {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: .7rem;
@@ -156,6 +156,13 @@
   border-radius: 10px;
   font-size: .85rem;
   padding: .7rem;
+}
+
+.recommendedMoviesWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;;
 }
 
 @media screen and (min-width: 440px) {

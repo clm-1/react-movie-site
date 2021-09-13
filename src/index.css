@@ -33,9 +33,15 @@ hr {
 }
 
 .page-header {
+  position: relative;
   display: none;
+  justify-content: flex-start;
   margin-bottom: 1rem;
   border-radius: 10px;
+}
+
+.page-header.genre-header {
+  display: flex;
 }
 
 .page-header span {
@@ -47,16 +53,13 @@ hr {
   cursor: pointer;
 }
 
-.page-header select {
-  border: none;
-  border-radius: 10px;
-  padding: 0rem .7rem;
-  width: 20%;
-}
-
-h1 {
+.page-header h1 {
   font-weight: 400;
   font-size: 1.4rem;
+}
+
+.page-header h1.genreh1 {
+  justify-self: center;
 }
 
 @media screen and (min-width: 550px) {

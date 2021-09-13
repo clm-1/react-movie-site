@@ -28,7 +28,7 @@ const MovieList = ({ type = null, genre = null }) => {
     if (isNaN(+params.page) || params.page <= 0) setParams({ page: 1 });
   }, [params.page])
 
-  data && console.log(data);
+  data && console.log('data', data);
 
   return (
     <div>

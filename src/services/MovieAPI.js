@@ -20,6 +20,10 @@ export const getMovies = async (type, page) => {
   return await get(`/movie/${type}?api_key=${apiKey}&page=${page}&region=${reg}`);
 };
 
+export const getRecommendedMovies = async (id) => {
+  return await get(`/movie/${id}/recommendations?api_key=${apiKey}`);
+}
+
 // Get all genre names
 export const getGenres = async () => {
   return await get(`/genre/movie/list?api_key=${apiKey}`)
