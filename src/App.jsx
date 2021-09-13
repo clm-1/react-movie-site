@@ -13,6 +13,7 @@ import TopRated from './pages/TopRated';
 
 function App() {
   return (
+    <>
     <div className="App">
       <Navbar />
       <Switch>
@@ -25,8 +26,9 @@ function App() {
         <Route path="/people/:id" component={PersonDetails} />
         <Route path="/search" component={Search} />
       </Switch>
-      <Footer />
     </div>
+    <Footer />
+  </>
   )
 }
 

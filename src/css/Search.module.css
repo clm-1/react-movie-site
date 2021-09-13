@@ -1,0 +1,15 @@
+.searchWrapper form input[type=text] {
+  outline: none;
+  width: 100%;
+  padding: .7rem;
+  border-radius: 5px;
+  background-color: rgb(3, 3, 3);
+  border: 2px solid rgba(155, 207, 219, 0.548);
+  font-size: 1.2rem;
+  color: rgb(212, 212, 212);
+}
+
+.searchWrapper form input[type=text]:focus {
+  border: 2px solid rgba(155, 207, 219, 0.781);
+  outline: none;
+}
