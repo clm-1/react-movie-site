@@ -6,6 +6,7 @@ import styles from '../css/NoSearch.module.css';
 
 // Render message based on search status (not yet searched or no search results)
 const NoSearch = ({ msg }) => {
+  // Get recommended movies from context
   const { todaysRecommendations } = useMovieContext();
 
   return (

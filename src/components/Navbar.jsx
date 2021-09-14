@@ -37,6 +37,9 @@ const Navbar = () => {
             <NavLink exact to="/" activeClassName={styles.activeLink}>
               Popular
             </NavLink>
+            <NavLink to="/trending" activeClassName={styles.activeLink}>
+              Trending
+            </NavLink>
             <NavLink to="/now-playing" activeClassName={styles.activeLink}>
               Now Playing
             </NavLink>
