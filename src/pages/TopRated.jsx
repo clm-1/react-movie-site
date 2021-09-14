@@ -2,19 +2,17 @@ import React from 'react';
 import MovieList from '../components/MovieList';
 import RecentMovies from '../components/RecentMovies';
 
-// Render movie list based on popular movies
-const Popular = () => {
+// Render movie list based on top rated movies
+const TopRated = () => {
   return (
-    <>
     <div className="page-container">
       <div className="page-header">
-        <h1>Popular</h1>
+        <h1>Top Rated</h1>
       </div>
-      <MovieList type="popular" />
+      <MovieList type="top_rated" />
       <RecentMovies />
     </div>
-    </>
   )
 }
 
-export default Popular
+export default TopRated
