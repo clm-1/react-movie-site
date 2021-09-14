@@ -30,9 +30,14 @@ const Navbar = () => {
       { showLinks && <div onClick={handleLinkClick} className={styles.overlay}></div>}
       <div className={styles.linkWrapper}>
         <Link to="/" className={styles.logo}>goodfilms</Link>
-        <div className={styles.linkDropdown}>
-          {/* Show and hide links in navbar on mobile */}
-          <button onClick={() => setShowLinks(!showLinks)}>{currentPage}{!showLinks ? <i className="fas fa-chevron-down"></i> : <i className="fas fa-chevron-up"></i>}</button>
+        {/* Show and hide links in navbar on mobile */}
+          <div className={styles.hamburgerClickBox} onClick={() => setShowLinks(!showLinks)}>
+            {/* Hamburger menu on mobile */}
+            <div className={styles.hamburgerWrapper} >
+              <div className={`${styles.hamburgerLine} ${showLinks && styles.openLinks}`}></div>
+            </div>
+          </div>
+          {/* Clicking links will hide them again (mobile) */}
           <div onClick={handleLinkClick} className={`${styles.navLinks} ${!showLinks && styles.hideLinks}`}>
             <NavLink exact to="/" activeClassName={styles.activeLink}>
               Popular
@@ -53,7 +58,6 @@ const Navbar = () => {
               Search
             </NavLink>
           </div>
-        </div>
       </div>
     </nav>
   )

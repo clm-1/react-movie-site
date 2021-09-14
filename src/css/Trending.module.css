@@ -2,7 +2,7 @@
   width: 180px;
   position: absolute;
   right: 0;
-  top: -5px;
+  top: 0px;
 }
 
 .timeButtons button {
@@ -10,12 +10,12 @@
   color: rgb(160, 239, 253);
   background: none;
   border: 2px solid rgb(160, 239, 253);
-  font-size: 1rem;
+  font-size: .85rem;
   border-radius: 10px;
   margin-left: .5rem;
   opacity: .6;
   width: 45%;
-  padding: .5rem;
+  padding: .35rem;
 }
 
 .timeButtons button:hover {

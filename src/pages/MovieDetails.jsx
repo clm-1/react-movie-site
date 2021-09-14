@@ -115,12 +115,16 @@ const MovieDetails = () => {
               </>
             }
           </>}
-          <h2>Related Movies:</h2>
-          <div className={styles.recommendedMoviesWrapper}>
-            {recommended.data && recommended.data.results.slice(0, 8).map((movie, i) => (
-              <MovieCard key={i} movie={movie} />
-            ))}
-          </div>
+          { recommended.data && recommended.data.results.length > 0 && 
+            <>
+            <h2>Related Movies:</h2>
+            <div className={styles.recommendedMoviesWrapper}>
+              {recommended.data.results.slice(0, 8).map((movie, i) => (
+                <MovieCard key={i} movie={movie} />
+              ))}
+            </div>
+            </>
+          }
       </div>
     </div>
   )
