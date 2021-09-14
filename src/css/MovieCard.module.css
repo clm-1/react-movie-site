@@ -8,6 +8,7 @@
   background-color: rgba(73, 73, 70, 0.445);
   box-shadow: 2px 5px 7px #00000060;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .movieCardWrapper.small {
