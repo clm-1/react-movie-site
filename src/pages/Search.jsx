@@ -9,15 +9,18 @@ const Search = () => {
   const [params, setParams] = useUrlSearchParams({ q: '' })
   const [searchInput, setSearchInput] = useState(params.q);
 
+  // Change state on input change
   const handleInputChange = (e) => {
     setSearchInput(e.target.value)
   }
 
+  // Set params to searchInput state on submit
   const handleSubmit = (e) => {
     e.preventDefault();
     setParams({ q: searchInput });
   }
 
+  // Clear form: reset params and searchInput
   const handleClear = () => {
     setParams({ page: 1, q: '' })
     setSearchInput('');

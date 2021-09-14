@@ -2,6 +2,7 @@ import React from 'react';
 import MovieList from '../components/MovieList';
 import RecentMovies from '../components/RecentMovies';
 
+// Render movie list based on top rated movies
 const TopRated = () => {
   return (
     <div className="page-container">

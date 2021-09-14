@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const useRecentMovies = (key) => {
   const [storedMovies, setStoredMovies] = useState(null);
 
+  // Return if key is not string
   if (typeof key !== 'string') return 'Not a valid key'
 
   const getRecentMovies = () => {

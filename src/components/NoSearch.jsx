@@ -4,10 +4,9 @@ import MovieCard from './MovieCard';
 
 import styles from '../css/NoSearch.module.css';
 
+// Render message based on search status (not yet searched or no search results)
 const NoSearch = ({ msg }) => {
   const { todaysRecommendations } = useMovieContext();
-
-  todaysRecommendations && console.log(todaysRecommendations);
 
   return (
     <div className={styles.noSearchWrapper}>

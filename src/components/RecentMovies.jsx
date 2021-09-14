@@ -5,6 +5,7 @@ import MovieCard from './MovieCard';
 import styles from '../css/RecentMovies.module.css';
 
 const RecentMovies = () => {
+  // Use recent movies-hook to get recently viewed movies
   const { getRecentMovies, storedMovies } = useRecentMovies('recent-movies');
 
   // Get recent movies from local storage on load

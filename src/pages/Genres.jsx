@@ -8,6 +8,7 @@ import RecentMovies from '../components/RecentMovies';
 
 import styles from '../css/Genres.module.css';
 
+// Render list of all genres
 const Genres = () => {
   const { data, isError, error, isLoading } = useQuery('genres', () => {
     return getGenres();
