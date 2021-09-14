@@ -6,8 +6,13 @@
   position: relative;
   border-radius: 10px;
   background-color: rgba(73, 73, 70, 0.445);
-  box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.377);
+  box-shadow: 2px 5px 7px #00000060;
   cursor: pointer;
+}
+
+.movieCardWrapper.small {
+  background: none;
+  box-shadow: 1px 4px 5px #00000060;
 }
 
 .movieCardWrapper:hover {
@@ -23,6 +28,11 @@
   border-radius: 10px 10px 0 0;
 }
 
+.movieCardWrapper img.small {
+  display: block;
+  border-radius: 10px;
+}
+
 .movieCardWrapper .cardTitle {
   font-size: .85rem;
   padding: .4rem .6rem .7rem .6rem;
@@ -31,5 +41,11 @@
 @media screen and (min-width: 600px) {
   .movieCardWrapper .cardTitle {
     font-size: .95rem;
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .movieCardWrapper img.small {
+    max-height: 130px;
   }
 }

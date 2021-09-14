@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom';
+
 import styles from '../css/Navbar.module.css'
 
 const Navbar = () => {
@@ -35,6 +36,9 @@ const Navbar = () => {
           <div onClick={handleLinkClick} className={`${styles.navLinks} ${!showLinks && styles.hideLinks}`}>
             <NavLink exact to="/" activeClassName={styles.activeLink}>
               Popular
+            </NavLink>
+            <NavLink to="/trending" activeClassName={styles.activeLink}>
+              Trending
             </NavLink>
             <NavLink to="/now-playing" activeClassName={styles.activeLink}>
               Now Playing

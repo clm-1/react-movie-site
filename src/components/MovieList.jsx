@@ -1,28 +1,36 @@
 import React, { useEffect } from 'react'
 import { useQuery } from 'react-query';
 import { useUrlSearchParams } from 'use-url-search-params';
-import { getMovies, getMoviesByGenre, getSearch } from '../services/MovieAPI';
+import { getMovies, getMoviesByGenre, getSearch, getTrending } from '../services/MovieAPI';
 import MovieCard from '../components/MovieCard';
 import PageNotFound from './PageNotFound';
-import styles from '../css/MovieList.module.css';
 import NextPrevBtns from './NextPrevBtns';
 import Loading from './Loading';
 import NoSearch from './NoSearch';
 
+import styles from '../css/MovieList.module.css';
 
-const MovieList = ({ type = null, genre = null, searchQuery = null }) => {
+const MovieList = ({ type = null, genre = null, searchQuery = null, window = null }) => {
   // Using url search params to keep track of current page
   const [params, setParams] = useUrlSearchParams({ page: 1 });
 
   // React Query gets data based on what type is sent into the component from the parent page (will be popular, now-playing or top-rated)
   // If genre is sent in, it will use that function instead
-  const { data, isError, isLoading, isPreviousData } = useQuery([type, genre, params.page, searchQuery], () => {
+  const { data, isError, isLoading, isPreviousData } = useQuery([type, genre, params.page, searchQuery, window], () => {
+    // If request comes from Search Page
     if (searchQuery) return getSearch(searchQuery, params.page);
+
+    // If request comes from Genre Page
     if (genre) return getMoviesByGenre(genre, params.page);
-    console.log('page in list:', params.page)
+
+    // If trending + timewindow
+    if (window) return getTrending(window, params.page);
+
+    // If request comes from Popular, Now Playing or Top Rated
     return getMovies(type, params.page);
+
+     // Keep previous data to see old data while loading new data
   }, { keepPreviousData: true });
-  // Keep previous data to see old data while loading new data
 
   useEffect(() => {
     // Check page in params
@@ -30,11 +38,10 @@ const MovieList = ({ type = null, genre = null, searchQuery = null }) => {
     if (isNaN(+params.page) || params.page <= 0) setParams({ page: 1 });
   }, [params.page])
 
+  // Reset page to 1 if searchQuery changes
   useEffect(() => {
     setParams({ page: 1 });
   }, [searchQuery])
-
-  data && console.log('data', data);
 
   return (
     <div>
