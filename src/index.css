@@ -20,11 +20,16 @@ body {
   background-color: rgb(38, 40, 53);
 }
 
+.App {
+  min-height: 100vh;
+  padding-bottom: 200px;
+}
+
 .page-container {
   padding: 1rem;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
 }
 
 hr {

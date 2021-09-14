@@ -1,4 +1,7 @@
 .movieCardWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   opacity: .9;
   position: relative;
   border-radius: 10px;
@@ -14,13 +17,19 @@
 }
 
 .movieCardWrapper img {
+  flex: 1;
   object-fit: cover;
   width: 100%;
-  max-height: 345px;
   border-radius: 10px 10px 0 0;
 }
 
-.movieCardWrapper h2 {
-  font-size: .9rem;
-  padding: .6rem;
+.movieCardWrapper .cardTitle {
+  font-size: .85rem;
+  padding: .4rem .6rem .7rem .6rem;
+}
+
+@media screen and (min-width: 600px) {
+  .movieCardWrapper .cardTitle {
+    font-size: .95rem;
+  }
 }

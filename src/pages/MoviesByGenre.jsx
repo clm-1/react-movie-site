@@ -1,13 +1,13 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import { MovieContext } from '../contexts/MovieContextProvider';
 import MovieList from '../components/MovieList';
+import { useMovieContext } from '../contexts/MovieContext';
 import styles from '../css/MoviesByGenre.module.css';
 
 const MoviesByGenre = () => {
   const { genreId } = useParams();
   const [ genreName, setGenreName ] = useState(null);
-  const { genres } = useContext(MovieContext); 
+  const { genres } = useMovieContext();
   const history = useHistory();
 
   useEffect(() => {

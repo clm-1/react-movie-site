@@ -1,0 +1,34 @@
+.noSearchWrapper h2 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: 1rem 0;
+}
+
+.noSearchMsg {
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(169, 169, 169, 0.150);
+}
+
+.noSearchMsg p {
+  font-size: 1.2rem;
+}
+
+.recommended {
+  display: grid; 
+  gap: .7rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 600px) {
+  .recommended {
+    display: grid; 
+    gap: .7rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

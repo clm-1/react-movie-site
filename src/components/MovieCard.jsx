@@ -13,8 +13,10 @@ const MovieCard = ({ movie }) => {
 
   return (
     <div onClick={handleCardClick} className={styles.movieCardWrapper}>
-      <img src={movie.poster_path ? `${imgPrefix}${movie.poster_path}` : noPoster} alt="poster" />
-      <h2>{ movie.title.length < 23 ? movie.title : `${movie.title.slice(0, 23)}...` }</h2>
+      <div className={styles.imgWrapper}>
+        <img src={movie.poster_path ? `${imgPrefix}${movie.poster_path}` : noPoster} alt="poster" />
+      </div>
+      <p className={styles.cardTitle}>{ movie.title.length < 23 ? movie.title : `${movie.title.slice(0, 18)}...` }</p>
     </div>
   )
 }
