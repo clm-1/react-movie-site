@@ -39,11 +39,6 @@ a.activeLink {
   color: rgb(160, 239, 253);
 }
 
-.linkDropdown {
-  position: relative;
-  width: 200px;
-}
-
 .hamburgerClickBox {
   cursor: pointer;
   position: absolute;
@@ -137,10 +132,6 @@ a.activeLink {
     left: 0;
   }
 
-  .linkDropdown {
-    width: initial;
-  }
-
   .navLinks {
     width: initial;
     position: initial;
@@ -157,12 +148,6 @@ a.activeLink {
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: .4rem;
-  }
-
-  .linkWrapper button {
-    width: 100%;
-    display: none;
-    pointer-events: none;
   }
 }
 

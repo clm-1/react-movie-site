@@ -32,10 +32,12 @@ const Navbar = () => {
         <Link to="/" className={styles.logo}>goodfilms</Link>
         {/* Show and hide links in navbar on mobile */}
           <div className={styles.hamburgerClickBox} onClick={() => setShowLinks(!showLinks)}>
+            {/* Hamburger menu on mobile */}
             <div className={styles.hamburgerWrapper} >
               <div className={`${styles.hamburgerLine} ${showLinks && styles.openLinks}`}></div>
             </div>
           </div>
+          {/* Clicking links will hide them again (mobile) */}
           <div onClick={handleLinkClick} className={`${styles.navLinks} ${!showLinks && styles.hideLinks}`}>
             <NavLink exact to="/" activeClassName={styles.activeLink}>
               Popular

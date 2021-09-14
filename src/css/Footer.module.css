@@ -41,7 +41,8 @@
 .footerLinks a {
   opacity: 1;
   font-style: normal;
-  font-size: 1rem;
+  font-size: .75rem;
+  margin-top: .5rem;
 }
 
 .footerWrapper button {
@@ -59,4 +60,11 @@
 
 .footerWrapper button:hover {
   background-color: rgb(68, 68, 78);
+}
+
+@media screen and (min-width: 450px) {
+  .footerLinks a {
+    font-size: 1rem;
+    margin-top: .2rem;
+  }
 }
