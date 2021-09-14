@@ -19,7 +19,6 @@ const MovieList = ({ type = null, genre = null, searchQuery = null }) => {
   const { data, isError, isLoading, isPreviousData } = useQuery([type, genre, params.page, searchQuery], () => {
     if (searchQuery) return getSearch(searchQuery, params.page);
     if (genre) return getMoviesByGenre(genre, params.page);
-    console.log('page in list:', params.page)
     return getMovies(type, params.page);
   }, { keepPreviousData: true });
   // Keep previous data to see old data while loading new data
@@ -33,8 +32,6 @@ const MovieList = ({ type = null, genre = null, searchQuery = null }) => {
   useEffect(() => {
     setParams({ page: 1 });
   }, [searchQuery])
-
-  data && console.log('data', data);
 
   return (
     <div>

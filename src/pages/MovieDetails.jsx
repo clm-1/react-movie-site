@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from '../css/MovieDetails.module.css';
 import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
@@ -8,10 +8,12 @@ import noProfileImg from '../assets/images/no_profileimg.png';
 import Loading from '../components/Loading';
 import PageNotFound from '../components/PageNotFound';
 import MovieCard from '../components/MovieCard';
+import useRecentMovies from '../hooks/useRecentMovies';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const history = useHistory();
+  const { setRecentMovies } = useRecentMovies('recent-movies');
   const { data, isError, error, isLoading } = useQuery(['details', id], () => {
     return getMovie(id);
   });
@@ -19,7 +21,11 @@ const MovieDetails = () => {
     return getRecommendedMovies(id);
   })
 
-  recommended.data && console.log(recommended.data);
+  useEffect(() => {
+    if (data) {
+      setRecentMovies(data);
+    }
+  }, [data])
 
   // Prefixes for poster and cover img
   const imgPrefix = 'https://image.tmdb.org/t/p/w500';
