@@ -1,7 +1,8 @@
 import React from 'react'
 import { useMovieContext } from '../contexts/MovieContext';
-import styles from '../css/NoSearch.module.css';
 import MovieCard from './MovieCard';
+
+import styles from '../css/NoSearch.module.css';
 
 const NoSearch = ({ msg }) => {
   const { todaysRecommendations } = useMovieContext();

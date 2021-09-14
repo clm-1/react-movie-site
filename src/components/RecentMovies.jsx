@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import styles from '../css/RecentMovies.module.css';
 import useRecentMovies from '../hooks/useRecentMovies';
 import MovieCard from './MovieCard';
+
+import styles from '../css/RecentMovies.module.css';
 
 const RecentMovies = () => {
   const { getRecentMovies, storedMovies } = useRecentMovies('recent-movies');

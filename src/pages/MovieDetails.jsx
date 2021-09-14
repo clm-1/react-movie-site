@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import styles from '../css/MovieDetails.module.css';
 import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getMovie, getRecommendedMovies } from '../services/MovieAPI';
@@ -10,17 +9,26 @@ import PageNotFound from '../components/PageNotFound';
 import MovieCard from '../components/MovieCard';
 import useRecentMovies from '../hooks/useRecentMovies';
 
+import styles from '../css/MovieDetails.module.css';
+
 const MovieDetails = () => {
   const { id } = useParams();
   const history = useHistory();
+
+  // Use recent movies-hook
   const { setRecentMovies } = useRecentMovies('recent-movies');
+
+  // Get movie based on id from params
   const { data, isError, error, isLoading } = useQuery(['details', id], () => {
     return getMovie(id);
   });
+
+  // Get recommended movies based on this movie
   const recommended = useQuery(['recommended', id], () => {
     return getRecommendedMovies(id);
   })
 
+  // Add this movie to local storage
   useEffect(() => {
     if (data) {
       setRecentMovies(data);

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import noPoster from '../assets/images/no_poster.png';
+
 import styles from '../css/MovieCard.module.css';
 
 const MovieCard = ({ movie, small }) => {

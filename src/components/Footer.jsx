@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { scrollToTopBtn } from './ScrollToTop';
+
 import styles from '../css/Footer.module.css';
 
 const Footer = () => {

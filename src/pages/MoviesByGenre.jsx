@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
-import MovieList from '../components/MovieList';
 import { useMovieContext } from '../contexts/MovieContext';
+import MovieList from '../components/MovieList';
+
 import styles from '../css/MoviesByGenre.module.css';
 
 const MoviesByGenre = () => {

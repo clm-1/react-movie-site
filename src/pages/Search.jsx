@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { useUrlSearchParams } from 'use-url-search-params';
 import MovieList from '../components/MovieList';
 import NoSearch from '../components/NoSearch';
+
 import styles from '../css/Search.module.css';
-import { useUrlSearchParams } from 'use-url-search-params';
 
 const Search = () => {
   const [params, setParams] = useUrlSearchParams({ q: '' })
