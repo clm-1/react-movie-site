@@ -86,7 +86,7 @@ const MovieDetails = () => {
       {isLoading && <Loading />}
       {isError && <PageNotFound />}
       {data && renderHeader()}
-      <div className="page-container">
+      <div className={`page-container not-top`}>
         {data &&
           <>
             <h2>Top Cast:</h2>

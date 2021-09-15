@@ -33,6 +33,10 @@ body {
   margin: 0 auto 2rem auto;
 }
 
+.page-container.not-top {
+  padding-top: 1.5rem;
+}
+
 hr {
   border: 1px solid rgb(116, 119, 119);;
   margin: .4rem 0 1rem 0;
