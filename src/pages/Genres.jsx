@@ -14,8 +14,6 @@ const Genres = () => {
     return getGenres();
   })
 
-  data && console.log(data);
-
   return (
     <div className="page-container">
       { isLoading && <Loading /> }
