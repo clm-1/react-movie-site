@@ -13,7 +13,7 @@ const MovieContextProvider = (props) => {
 
   // Hard coded id:s for recommended movies (decided by developer)
   // Is displayed on search-page if there is no search yet (or no search results)
-  const recommended = [578, 329, 78, 2567];
+  const recommended = [578, 278, 78, 2567];
 
   // Get a list of genres to display correct name on MoviesByGenre-page
   const getGenresInContext = async () => {
