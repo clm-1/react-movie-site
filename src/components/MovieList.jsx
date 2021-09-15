@@ -12,7 +12,7 @@ import styles from '../css/MovieList.module.css';
 
 const MovieList = ({ type = null, genre = null, searchQuery = null, window = null }) => {
   // Using url search params to keep track of current page
-  const [params, setParams] = useUrlSearchParams({ page: 1 });
+  const [params, setParams] = useUrlSearchParams();
 
   // React Query gets data based on what type is sent into the component from the parent page (will be popular, now-playing or top-rated)
   // If genre is sent in, it will use that function instead
@@ -35,13 +35,13 @@ const MovieList = ({ type = null, genre = null, searchQuery = null, window = nul
   useEffect(() => {
     // Check page in params
     // If page is NaN or below 1, set page to 1
-    if (isNaN(+params.page) || params.page <= 0) setParams({ page: 1 });
+    // if (isNaN(+params.page) || params.page <= 0) setParams({ page: 1 });
   }, [params.page])
 
   // Reset page to 1 if searchQuery changes
-  useEffect(() => {
-    setParams({ page: 1 });
-  }, [searchQuery])
+  // useEffect(() => {
+  //   setParams({ page: 1 });
+  // }, [searchQuery])
 
   return (
     <div>

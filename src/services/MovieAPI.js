@@ -22,16 +22,17 @@ export const getMovies = async (type, page) => {
 
 // Get trending movies for the day or the week
 export const getTrending = async (timeWindow, page) => {
+  if (!page) page = 1;
   // Check if timeWindow is valid
-  if (timeWindow === 'day' || timeWindow === 'week') {
-    return await get(`https://api.themoviedb.org/3/trending/movie/${timeWindow}?api_key=${apiKey}&page=${page}`)
-  } else {
-    return;
-  }
+  timeWindow === 'day' || timeWindow === 'week' ? timeWindow === timeWindow : timeWindow = 'day'
+  
+  return await get(`https://api.themoviedb.org/3/trending/movie/${timeWindow}?api_key=${apiKey}&page=${page}`)
 }
 
+// Related movies
 // Get recommended movies based on a movie id (displayed on movie details-page)
-export const getRecommendedMovies = async (id) => {
+// Using "recommendations" instead of "similar" because the responses felt more relevant to the current movie 
+export const getRelatedMovies = async (id) => {
   return await get(`/movie/${id}/recommendations?api_key=${apiKey}`);
 }
 

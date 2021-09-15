@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useUrlSearchParams } from 'use-url-search-params';
 import MovieList from '../components/MovieList';
 import NoSearch from '../components/NoSearch';
@@ -6,8 +7,9 @@ import NoSearch from '../components/NoSearch';
 import styles from '../css/Search.module.css';
 
 const Search = () => {
-  const [params, setParams] = useUrlSearchParams({ q: '' })
-  const [searchInput, setSearchInput] = useState(params.q);
+  const [params, setParams] = useUrlSearchParams()
+  const [searchInput, setSearchInput] = useState('');
+  const history = useHistory();
 
   // Change state on input change
   const handleInputChange = (e) => {
@@ -22,7 +24,7 @@ const Search = () => {
 
   // Clear form: reset params and searchInput
   const handleClear = () => {
-    setParams({ page: 1, q: '' })
+    history.push('/search');
     setSearchInput('');
   }
 

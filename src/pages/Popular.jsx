@@ -4,6 +4,7 @@ import RecentMovies from '../components/RecentMovies';
 
 // Render movie list based on popular movies
 const Popular = () => {
+  
   return (
     <>
     <div className="page-container">
