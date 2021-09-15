@@ -1,0 +1,17 @@
+.genreList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 500px) {
+  .genreList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .genreList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

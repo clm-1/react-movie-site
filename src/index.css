@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
 * {
    padding: 0;
    margin: 0;
    box-sizing: border-box;
+   scroll-behavior: smooth;
 }
 
 html {
   font-family: 'Lato';
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 body {
@@ -18,11 +18,21 @@ body {
   background-color: rgb(38, 40, 53);
 }
 
+.App {
+  min-height: 100vh;
+  padding-bottom: 200px;
+}
+
 .page-container {
   padding: 1rem;
+  padding-top: 85px;
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 0 auto 2rem auto;
+}
+
+.page-container.not-top {
+  padding-top: 1.5rem;
 }
 
 hr {
@@ -30,11 +40,43 @@ hr {
   margin: .4rem 0 1rem 0;
 }
 
-h1 {
+.page-header {
+  position: relative;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+
+.page-header.genre-header {
+  display: flex;
+}
+
+.page-header span {
+  background-color: rgb(95, 95, 95);
+  padding: 0 .5rem;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  margin-right: .9rem;
+  cursor: pointer;
+}
+
+.page-header h1 {
   font-weight: 400;
   font-size: 1.4rem;
-  margin-bottom: 1rem;
-  background-color: rgb(55, 55, 61);
-  padding: .5rem .7rem;
-  border-radius: 10px;
+}
+
+.page-header h1.genreh1 {
+  justify-self: center;
+}
+
+@media screen and (min-width: 550px) {
+  .page-container {
+    padding-top: 125px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .page-container {
+    padding-top: 100px;
+  }
 }

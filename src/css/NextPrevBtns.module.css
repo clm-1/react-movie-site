@@ -1,0 +1,41 @@
+.pageNumberWrapper {
+  margin: 1rem 0;
+  background-color: rgba(169, 169, 169, 0.150);
+  padding: .5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageNumberWrapper h2 {
+  opacity: .6;
+  font-size: .8rem;
+}
+
+.pageNumberWrapper button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgb(139, 136, 136);
+  font-size: 1.6rem;
+  opacity: .9;
+}
+
+.pageNumberWrapper button:hover {
+  opacity: 1;
+}
+
+.pageNumberWrapper button:disabled {
+  opacity: .5;
+}
+
+@media screen and (min-width: 500px) {
+  .pageNumberWrapper h2 {
+    font-size: 1rem;
+  }
+
+  .pageNumberWrapper button {
+    font-size: 2rem;
+  }
+}

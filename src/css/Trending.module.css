@@ -1,0 +1,29 @@
+.timeButtons {
+  width: 180px;
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+
+.timeButtons button {
+  cursor: pointer;
+  color: rgb(160, 239, 253);
+  background: none;
+  border: 2px solid rgb(160, 239, 253);
+  font-size: .85rem;
+  border-radius: 10px;
+  margin-left: .5rem;
+  opacity: .6;
+  width: 45%;
+  padding: .35rem;
+}
+
+.timeButtons button:hover {
+  opacity: .9;
+}
+
+.timeButtons button.activeBtn {
+  opacity: .8;
+  background-color: rgb(160, 239, 253);
+  color: black;
+}

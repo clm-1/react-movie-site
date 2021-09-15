@@ -2,19 +2,17 @@ import React from 'react';
 import MovieList from '../components/MovieList';
 import RecentMovies from '../components/RecentMovies';
 
-// Render movie list based on popular movies
-const Popular = () => {
+// Render movie list based on now playing movies
+const NowPlaying = () => {
   return (
-    <>
     <div className="page-container">
       <div className="page-header">
-        <h1>Popular</h1>
+        <h1>Now Playing</h1>
       </div>
-      <MovieList type="popular" />
+      <MovieList type="now_playing" />
       <RecentMovies />
     </div>
-    </>
   )
 }
 
-export default Popular
+export default NowPlaying
