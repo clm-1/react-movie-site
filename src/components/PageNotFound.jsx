@@ -1,7 +1,9 @@
 import React from 'react'
-import styles from '../css/PageNotFound.module.css';
 import { useHistory } from 'react-router-dom';
 
+import styles from '../css/PageNotFound.module.css';
+
+// Render page not found if there is an error
 const PageNotFound = () => {
   const history = useHistory();
 

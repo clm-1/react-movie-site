@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+// Scroll to top on button-click
 export const scrollToTopBtn = () => {
   window.scrollTo({
     top: 0,
@@ -8,6 +9,7 @@ export const scrollToTopBtn = () => {
   })
 }
 
+// Scroll to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 

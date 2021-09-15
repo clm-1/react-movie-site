@@ -12,7 +12,6 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3'
 // General get-function that will be used by other functions to get more specific data
 const get = async (endpoint) => {
   const response = await axios.get(endpoint);
-  console.log(response);
   return response.data;
 }
 
@@ -21,10 +20,32 @@ export const getMovies = async (type, page) => {
   return await get(`/movie/${type}?api_key=${apiKey}&page=${page}&region=${reg}`);
 };
 
+// Get trending movies for the day or the week
+export const getTrending = async (timeWindow, page) => {
+  // Check if timeWindow is valid
+  if (timeWindow === 'day' || timeWindow === 'week') {
+    return await get(`https://api.themoviedb.org/3/trending/movie/${timeWindow}?api_key=${apiKey}&page=${page}`)
+  } else {
+    return;
+  }
+}
+
+// Get recommended movies based on a movie id (displayed on movie details-page)
+export const getRecommendedMovies = async (id) => {
+  return await get(`/movie/${id}/recommendations?api_key=${apiKey}`);
+}
+
+// Get search result based on query
+export const getSearch = async (searchQuery, page) => {
+  return await get(`/search/movie?api_key=${apiKey}&query=${searchQuery}&page=${page}`)
+}
+
+// Get all genre names
 export const getGenres = async () => {
   return await get(`/genre/movie/list?api_key=${apiKey}`)
 }
 
+// Get movies that has the genre id sent in here
 export const getMoviesByGenre = async (genre, page) => {
   return await get(`/discover/movie?api_key=${apiKey}&with_genres=${genre}&page=${page}`);
 };
@@ -34,7 +55,8 @@ export const getMovie = async (id) => {
   return await get(`/movie/${id}?api_key=${apiKey}&append_to_response=credits`);
 }
 
-// Get person details
+// Get person details with credits appended to response
+// Getting credits here because the response includes character name for credit
 export const getPerson = async (id) => {
   return await get(`/person/${id}?api_key=${apiKey}&append_to_response=credits`);
 }

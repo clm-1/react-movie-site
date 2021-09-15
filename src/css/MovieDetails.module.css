@@ -5,12 +5,12 @@
 
 .movieDetailsHeader img {
   align-self: center;
-  width: 33%;
+  width: 100%;
   border-radius: 10px;
 }
 
 .movieDetailsHeader h1 {
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   text-shadow: 2px 2px 2px black;
 }
 
@@ -32,12 +32,13 @@
 
 .headerInfoWrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: .5rem;
 }
 
 .headerText {
-  padding: 1.5rem;
+  padding: .5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -50,15 +51,16 @@
 }
 
 .releaseYear {
-  font-size: 1.9rem;
+  font-size: 1.4rem;
   opacity: .8;
 }
 
 .headerInfo {
-  font-size: 1.1rem;
+  margin-top: .3rem;
+  font-size: .95rem;
   font-style: italic;
   display: flex;
-  gap: .5rem;
+  gap: .3rem;
 }
 
 .runtime {
@@ -87,7 +89,6 @@
   background-color: rgb(19, 19, 24);
   z-index: -1;
   opacity: .6;
-  border-radius: 10px;
 }
 
 .movieDetailsHeader .coverImg {
@@ -97,7 +98,6 @@
   object-fit: cover;
   z-index: -2;
   opacity: .2;
-  border-radius: 10px;
 }
 
 .actorsWrapper {
@@ -106,9 +106,8 @@
   border-radius: 10px;
   max-width: 100%;
   display: grid;
-  gap: 1rem;
-  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.137);
-  grid-template-columns: repeat(5, 1fr);
+  gap: .7rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .actorCard {
@@ -127,8 +126,9 @@
 
 .fullCast {
   margin-top: 1rem;
+  margin-bottom: 1rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: .7rem;
 }
 
@@ -156,4 +156,135 @@
   border-radius: 10px;
   font-size: .85rem;
   padding: .7rem;
+}
+
+.recommendedMoviesWrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;;
+}
+
+@media screen and (min-width: 440px) {
+  .actorsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .fullCast {
+    grid-template-columns: repeat(2, 1fr);
+    gap: .7rem;
+  }
+
+  .headerInfo {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .recommendedMoviesWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  } 
+}
+
+@media screen and (min-width: 580px) {
+  .headerInfoWrapper {
+    flex-direction: row;
+  }
+
+  .movieDetailsHeader img.poster {
+    position: relative;
+    align-self: flex-start;
+    width: 33%;
+    top: 1.7rem;
+  }
+
+  .movieDetailsHeader h1 {
+    font-size: 1.5rem;
+  }
+
+  .score span {
+    font-size: 1.3rem;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .releaseYear {
+    font-size: 1.4rem;
+  }
+
+  .movieDetailsHeader p.genres {
+    margin-bottom: .2rem;
+  }
+
+  .headerInfo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    font-size: .9rem;
+    gap: 0rem;
+  }
+
+  .headerText {
+    padding: 1.5rem;
+  }
+
+  .actorsWrapper {
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .fullCast {
+    grid-template-columns: repeat(3, 1fr);
+    gap: .7rem;
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .headerInfo {
+    margin-top: 0;
+    font-size: 1.1rem;
+    gap: .5rem;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .actorsWrapper {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .recommendedMoviesWrapper {
+    grid-template-columns: repeat(4, 1fr);
+  } 
+
+  .movieDetailsHeader h1 {
+    font-size: 2.2rem;
+  }
+
+  .movieDetailsHeader img.poster {
+    top: 0;
+    align-self: center;
+  }
+
+  .releaseYear {
+    font-size: 1.9rem;
+  }
+
+  .score span {
+    font-size: 2.3rem;
+  }
+
+  .hide {
+    display: initial;
+  }
+
+  .headerInfo {
+    font-size: 1rem;
+    flex-direction: row;
+  }
+
+  .fullCast {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }

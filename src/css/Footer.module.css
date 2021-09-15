@@ -1,11 +1,13 @@
 .footerWrapper {
   position: relative;
+  bottom: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: -200px;
   padding: 2rem;
-  min-height: 200px;
+  height: 200px;
   background-color: rgb(6, 6, 8);
   border-top: 2px solid rgb(63, 66, 85);
 }
@@ -32,14 +34,18 @@
 }
 
 .footerLinks {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .5rem;
+  position: relative;
 }
 
 .footerLinks a {
+  text-align: center;
   opacity: 1;
   font-style: normal;
-  font-size: 1rem;
+  font-size: .7rem;
+  margin-top: .3rem;
 }
 
 .footerWrapper button {
@@ -51,10 +57,28 @@
   color: rgb(160, 239, 253);
   background-color: rgb(57, 57, 66);
   border-radius: 50%;
-  border: none;
+  border: 1px solid rgb(63, 66, 85);
   padding: .9rem;
 }
 
 .footerWrapper button:hover {
   background-color: rgb(68, 68, 78);
+}
+
+@media screen and (min-width: 450px) {
+  .footerLinks {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footerLinks a {
+    font-size: .8rem;
+    margin-top: .5rem;
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .footerLinks a {
+    font-size: 1rem;
+  }
 }
