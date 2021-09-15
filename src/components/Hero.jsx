@@ -1,6 +1,7 @@
 import React from 'react'
-import styles from '../css/Hero.module.css';
 import headerImg from '../assets/images/header_img.jpg'
+
+import styles from '../css/Hero.module.css';
 
 const Hero = ({ title, image }) => {
   return (

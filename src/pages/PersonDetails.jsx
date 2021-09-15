@@ -4,8 +4,9 @@ import { useQuery } from 'react-query';
 import { getPerson } from '../services/MovieAPI';
 import PageNotFound from '../components/PageNotFound';
 import Loading from '../components/Loading';
-import styles from '../css/PersonDetails.module.css';
 import noProfileImg from '../assets/images/no_profileimg.png';
+
+import styles from '../css/PersonDetails.module.css';
 
 const PersonDetails = () => {
   const { id } = useParams();

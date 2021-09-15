@@ -1,6 +1,10 @@
 .navbarWrapper {
+  position: fixed;
+  width: 100%;
+  min-height: 70px;
   background-color: rgb(6, 6, 8);
   border-bottom: 4px solid rgb(63, 66, 85);
+  z-index: 10;
 }
 
 .linkWrapper {
@@ -11,15 +15,19 @@
   justify-content: center;
   align-items: center;
   max-width: 1000px;
-  padding: 1rem .7rem;
+  padding: .7rem .7rem;
   margin: 0 auto;
 }
 
 .navbarWrapper a {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: rgb(240, 240, 240);
   margin: 0 .5rem;
   text-decoration: none;
+}
+
+.navbarWrapper a:hover {
+  color: rgb(160, 239, 253);
 }
 
 a.activeLink {
@@ -27,77 +35,108 @@ a.activeLink {
 }
 
 .linkWrapper .logo {
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: rgb(160, 239, 253);
 }
 
-.linkDropdown {
-  position: relative;
-  width: 200px;
-}
-
-.linkWrapper button {
+.hamburgerClickBox {
   cursor: pointer;
-  position: relative;
+  position: absolute;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background-color: rgb(6, 6, 8);
-  font-size: 1.1rem;
-  color: rgb(160, 239, 253);
-  border: 2px solid rgb(160, 239, 253);
-  padding: .5rem 1rem;
-  border-radius: 25px;
-  width: 200px;
-  z-index: 2;
+  left: 0;
+  margin-left: 1rem;
   opacity: .9;
-  margin-bottom: .6rem;
 }
 
-.linkWrapper button:hover {
+.hamburgerClickBox:hover {
   opacity: 1;
+}
+
+.hamburgerWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburgerLine,
+.hamburgerLine::before,
+.hamburgerLine::after {
+  cursor: pointer;
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background-color: rgb(160, 239, 253);
+  transition: .4s;
+}
+
+.hamburgerLine::before {
+  content: '';
+  top: -9px;
+}
+
+.hamburgerLine::after {
+  content: '';
+  top: 9px;
+}
+
+.hamburgerLine.openLinks {
+  width: 0;
+}
+
+.hamburgerLine.openLinks::before {
+  top: 0;
+  transform: rotate(-45deg)
+}
+
+.hamburgerLine.openLinks::after {
+  top: 0;
+  transform: rotate(45deg)
 }
 
 .navLinks {
   display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  font-size: 1.1rem;
-  width: 100%;
-  border-radius: 25px;
-  border: 2px solid rgba(160, 239, 253, 0.664);
   position: absolute;
-  top: 0;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px);
+  width: 100%;
+  top: 70px;
+  left: 0;
   z-index: 1;
-  padding: 3rem .5rem 1rem .5rem;
+  padding: 0 .5rem 3rem .5rem;
   background-color: rgba(6, 6, 8);
-  box-shadow: 0px 2px 10px black;
+  transition: .6s;
 }
 
 /* Send links off screen when dropdown is not clicked */
 .hideLinks {
-  left: 99999px;
-}
-
-.overlay {
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  height: 100%;
+  left: -1000px;
 }
 
 @media screen and (min-width: 550px) {
+  .navbarWrapper a {
+    font-size: 1.1rem;
+  }
+
+  .hamburgerClickBox {
+    display: none;
+    pointer-events: none;
+  }
+
   .hideLinks {
     display: initial;
     left: 0;
   }
 
-  .linkDropdown {
-    width: initial;
-  }
-
   .navLinks {
-    position: relative;
+    width: initial;
+    position: initial;
+    padding: 0;
+    height: initial;
     flex-direction: row;
     background: none;
     border: none;
@@ -106,19 +145,22 @@ a.activeLink {
   }
 
   .linkWrapper {
+    justify-content: space-between;
     gap: 1rem;
     margin-bottom: .4rem;
-    justify-content: space-between;
-  }
-
-  .linkWrapper button {
-    width: 100%;
-    display: none;
-    pointer-events: none;
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
+  .navbarWrapper {
+    padding: .5rem;
+  }
+
+  .logo {
+    position: relative;
+    top: -3px;
+  }
+
   .linkWrapper {
     margin-bottom: 0;
     flex-direction: row;

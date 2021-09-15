@@ -5,7 +5,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import './index.css';
 import App from './App';
-import MovieContextProvider from './contexts/MovieContextProvider';
 import ScrollToTop from './components/ScrollToTop';
 
 const queryClient = new QueryClient({
@@ -18,17 +17,13 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <ScrollToTop />
-        <MovieContextProvider>
-          <App />
-          <ReactQueryDevtools />
-        </MovieContextProvider>
-      </Router>
-    </QueryClientProvider>
-
+      <QueryClientProvider client={queryClient}>
+        <Router>
+            <ScrollToTop />
+            <App />
+            <ReactQueryDevtools />
+        </Router>
+      </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
