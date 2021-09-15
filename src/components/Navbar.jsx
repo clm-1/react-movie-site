@@ -1,28 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link, NavLink } from 'react-router-dom';
 
 import styles from '../css/Navbar.module.css'
 
 const Navbar = () => {
   // Hide and show links on mobile
   const [showLinks, setShowLinks] = useState(false);
-  const [currentPage, setCurrentPage] = useState('Popular');
-
-  const location = useLocation();
 
   // Hide links when clicked
   const handleLinkClick = (e) => {
     setShowLinks(false);
   }
-
-  useEffect(() => {
-    // Check pathname to set title of page in menu
-    // If pathname is other than below, push to start page
-    if (location.pathname === '/') return setCurrentPage('Popular');
-    if (location.pathname.includes('now-playing')) return setCurrentPage('Now Playing');
-    if (location.pathname.includes('top-rated')) return setCurrentPage('Top Rated');
-    if (location.pathname.includes('genres')) return setCurrentPage('Genres');
-  }, [location.pathname])
 
   return (
     <nav className={styles.navbarWrapper}>

@@ -34,15 +34,18 @@
 }
 
 .footerLinks {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: .5rem;
+  position: relative;
 }
 
 .footerLinks a {
+  text-align: center;
   opacity: 1;
   font-style: normal;
-  font-size: .75rem;
-  margin-top: .5rem;
+  font-size: .7rem;
+  margin-top: .3rem;
 }
 
 .footerWrapper button {
@@ -63,8 +66,19 @@
 }
 
 @media screen and (min-width: 450px) {
+  .footerLinks {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footerLinks a {
+    font-size: .8rem;
+    margin-top: .5rem;
+  }
+}
+
+@media screen and (min-width: 550px) {
   .footerLinks a {
     font-size: 1rem;
-    margin-top: .2rem;
   }
 }
