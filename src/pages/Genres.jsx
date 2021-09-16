@@ -10,7 +10,7 @@ import styles from '../css/Genres.module.css';
 
 // Render list of all genres
 const Genres = () => {
-  const { data, isError, error, isLoading } = useQuery('genres', () => {
+  const { data, isError, isLoading } = useQuery('genres', () => {
     return getGenres();
   })
 

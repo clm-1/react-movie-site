@@ -7,7 +7,7 @@ import styles from '../css/NextPrevBtns.module.css';
 // Check if current page === total_pages of result and disable "next" button if that is the case
 const NextPrevBtns = ({ page, totalPages, setParams, isPreviousData }) => {
   if (!page || isNaN(+page)) page = 1;
-  
+
   return (
     <div className={styles.pageNumberWrapper}>
       <button className="fas fa-chevron-circle-left" disabled={page === '1' || isPreviousData} onClick={() => {

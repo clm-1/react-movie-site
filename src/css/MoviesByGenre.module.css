@@ -10,18 +10,18 @@
   border: none;
   background: none;
   color: white;
-  font-size: 1.9rem;
-  font-weight: 500;
   opacity: .7;
-  padding-left: .8rem;
 }
 
-.genreHeader h1 {
-  position: absolute;
+.genreHeader button i {
+  font-size: 1.7rem;
+}
+
+/* .genreHeader h1 {
   left: 50%;
   transform: translateX(-50%);
   font-size: 1.3rem;
-}
+} */
 
 @media screen and (min-width: 550px) {
   .genreHeader h1 {

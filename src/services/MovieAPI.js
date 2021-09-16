@@ -25,7 +25,7 @@ export const getTrending = async (timeWindow, page) => {
   if (!page) page = 1;
   // Check if timeWindow is valid
   timeWindow === 'day' || timeWindow === 'week' ? timeWindow === timeWindow : timeWindow = 'day'
-  
+
   return await get(`https://api.themoviedb.org/3/trending/movie/${timeWindow}?api_key=${apiKey}&page=${page}`)
 }
 

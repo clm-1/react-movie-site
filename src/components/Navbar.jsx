@@ -27,22 +27,22 @@ const Navbar = () => {
           </div>
           {/* Clicking links will hide them again (mobile) */}
           <div onClick={handleLinkClick} className={`${styles.navLinks} ${!showLinks && styles.hideLinks}`}>
-            <NavLink exact to="/" activeClassName={styles.activeLink}>
+            <NavLink exact to="/?page=1" activeClassName={styles.activeLink}>
               Popular
             </NavLink>
-            <NavLink to="/trending" activeClassName={styles.activeLink}>
+            <NavLink to={`/trending?page=1&timeframe=day`} activeClassName={styles.activeLink}>
               Trending
             </NavLink>
-            <NavLink to="/now-playing" activeClassName={styles.activeLink}>
+            <NavLink to="/now-playing?page=1" activeClassName={styles.activeLink}>
               Now Playing
             </NavLink>
-            <NavLink to="/top-rated" activeClassName={styles.activeLink}>
+            <NavLink to="/top-rated?page=1" activeClassName={styles.activeLink}>
               Top Rated
             </NavLink>
             <NavLink to="/genres" activeClassName={styles.activeLink}>
               Genres
             </NavLink>
-            <NavLink to="/search" activeClassName={styles.activeLink}>
+            <NavLink to={`/search?page=1&q=`} activeClassName={styles.activeLink}>
               Search
             </NavLink>
           </div>

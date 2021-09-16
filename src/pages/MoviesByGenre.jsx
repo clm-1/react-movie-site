@@ -8,7 +8,7 @@ import styles from '../css/MoviesByGenre.module.css';
 // Render movie list based on selected genre
 const MoviesByGenre = () => {
   const { genreId } = useParams();
-  const [ genreName, setGenreName ] = useState(null);
+  const [genreName, setGenreName] = useState(null);
   const { genres } = useMovieContext();
   const history = useHistory();
 
@@ -28,7 +28,7 @@ const MoviesByGenre = () => {
     <div className="page-container">
       <div className={`page-header genre-header ${styles.genreHeader}`}>
         <button onClick={handleBackClick}>{<i className="fas fa-angle-left"></i>}</button>
-        <h1 className="genreh1">{ genreName ? genreName : 'Unknown' }</h1>
+        <h1 className="genreh1">{genreName ? genreName : 'Unknown'}</h1>
       </div>
       <MovieList genre={genreId} />
     </div>
