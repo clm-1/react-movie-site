@@ -8,6 +8,8 @@ const ActorsList = ({ data }) => {
   const history = useHistory();
   const imgPrefix = 'https://image.tmdb.org/t/p/w500';
 
+  if (!data.credits.cast.length) return null;
+
   return (
     <>
       <h2>Top Cast:</h2>

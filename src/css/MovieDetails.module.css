@@ -58,8 +58,11 @@
   margin-top: .3rem;
   font-size: .95rem;
   font-style: italic;
-  display: flex;
   gap: .3rem;
+}
+
+.hide {
+  display: none;
 }
 
 .runtime {
@@ -182,7 +185,15 @@
 @media screen and (min-width: 500px) {
   .relatedMoviesWrapper {
     grid-template-columns: repeat(3, 1fr);
-  } 
+  }
+
+  .headerInfo {
+    display: flex;
+  }
+
+  .hide {
+    display: initial;
+  }
 }
 
 @media screen and (min-width: 580px) {
@@ -218,8 +229,7 @@
   }
 
   .headerInfo {
-    display: flex;
-    flex-direction: column;
+    display: initial;
     margin-top: 0;
     font-size: .9rem;
     gap: 0rem;
@@ -279,8 +289,8 @@
   }
 
   .headerInfo {
+    display: flex;
     font-size: 1rem;
-    flex-direction: row;
   }
 
   .fullCast {

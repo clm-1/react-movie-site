@@ -24,9 +24,7 @@ const MovieDetails = () => {
 
   // Add this movie to local storage
   useEffect(() => {
-    if (data) {
-      setRecentMovies(data);
-    }
+    if (data) setRecentMovies(data);
   }, [data])
 
   return (
