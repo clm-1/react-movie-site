@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
 * {
@@ -51,14 +52,14 @@ hr {
   display: flex;
 }
 
-.page-header span {
+/* .page-header span {
   background-color: rgb(95, 95, 95);
   padding: 0 .5rem;
   border-radius: 50%;
   font-size: 1.3rem;
   margin-right: .9rem;
   cursor: pointer;
-}
+} */
 
 .page-header h1 {
   font-weight: 400;

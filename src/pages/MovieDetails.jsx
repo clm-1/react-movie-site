@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { getMovie, getRecommendedMovies } from '../services/MovieAPI';
+import { getMovie, getRelatedMovies } from '../services/MovieAPI';
 import noPoster from '../assets/images/no_poster.png';
 import noProfileImg from '../assets/images/no_profileimg.png';
 import Loading from '../components/Loading';
@@ -24,8 +24,8 @@ const MovieDetails = () => {
   });
 
   // Get recommended movies based on this movie
-  const recommended = useQuery(['recommended', id], () => {
-    return getRecommendedMovies(id);
+  const related = useQuery(['related', id], () => {
+    return getRelatedMovies(id);
   })
 
   // Add this movie to local storage
@@ -115,11 +115,11 @@ const MovieDetails = () => {
               </>
             }
           </>}
-          { recommended.data && recommended.data.results.length > 0 && 
+          { related.data && related.data.results.length > 0 && 
             <>
             <h2>Related Movies:</h2>
-            <div className={styles.recommendedMoviesWrapper}>
-              {recommended.data.results.slice(0, 8).map((movie, i) => (
+            <div className={styles.relatedMoviesWrapper}>
+              {related.data.results.slice(0, 8).map((movie, i) => (
                 <MovieCard key={i} movie={movie} />
               ))}
             </div>
