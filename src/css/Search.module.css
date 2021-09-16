@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: .5rem;
+  margin-bottom: 1rem;
 }
 
 .searchWrapper form input[type=text] {

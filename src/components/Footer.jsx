@@ -1,14 +1,16 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { scrollToTopBtn } from './ScrollToTop';
 
 import styles from '../css/Footer.module.css';
 
 const Footer = () => {
+  const history = useHistory();
+
   return (
     <div className={styles.footerWrapper}>
       <button className="fas fa-chevron-up" onClick={scrollToTopBtn}></button>
-      <h3>goodfilms</h3>
+      <h3 className={styles.footerLogo} onClick={() => history.replace('/')}>goodfilms</h3>
       <p className={styles.info}>This site uses The Movie DB API</p>
       <a href="https://developers.themoviedb.org/3" target="_blank">https://developers.themoviedb.org/3</a>
       <div className={styles.footerLinks}>
