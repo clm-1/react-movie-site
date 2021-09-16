@@ -1,0 +1,38 @@
+.genreHeader {
+  align-items: center;
+  gap: 1.3rem;
+  background-color: rgba(0, 0, 0, 0.199);
+  padding: .2rem;
+}
+
+.genreHeader button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: white;
+  opacity: .7;
+}
+
+.genreHeader button i {
+  font-size: 1.7rem;
+}
+
+/* .genreHeader h1 {
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.3rem;
+} */
+
+@media screen and (min-width: 550px) {
+  .genreHeader h1 {
+    position: relative;
+    left: 0;
+    top: -1px;
+    transform: none;
+  }
+
+  .genreHeader {
+    background: none;
+    padding: 0;
+  }
+}

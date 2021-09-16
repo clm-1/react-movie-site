@@ -1,21 +1,33 @@
 .navbarWrapper {
-  background-color: rgb(19, 19, 31);
+  position: fixed;
+  width: 100%;
+  min-height: 70px;
+  background-color: rgb(6, 6, 8);
+  border-bottom: 4px solid rgb(63, 66, 85);
+  z-index: 10;
 }
 
 .linkWrapper {
+  position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: .8rem;
+  justify-content: center;
   align-items: center;
   max-width: 1000px;
+  padding: .7rem .7rem;
   margin: 0 auto;
-  padding: 1.2rem .5rem;
 }
 
 .navbarWrapper a {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: rgb(240, 240, 240);
   margin: 0 .5rem;
   text-decoration: none;
+}
+
+.navbarWrapper a:hover {
+  color: rgb(160, 239, 253);
 }
 
 a.activeLink {
@@ -25,4 +37,132 @@ a.activeLink {
 .linkWrapper .logo {
   font-size: 2rem;
   color: rgb(160, 239, 253);
+}
+
+.hamburgerClickBox {
+  cursor: pointer;
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  left: 0;
+  margin-left: 1rem;
+  opacity: .9;
+}
+
+.hamburgerClickBox:hover {
+  opacity: 1;
+}
+
+.hamburgerWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.hamburgerLine,
+.hamburgerLine::before,
+.hamburgerLine::after {
+  cursor: pointer;
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background-color: rgb(160, 239, 253);
+  transition: .4s;
+}
+
+.hamburgerLine::before {
+  content: '';
+  top: -9px;
+}
+
+.hamburgerLine::after {
+  content: '';
+  top: 9px;
+}
+
+.hamburgerLine.openLinks {
+  width: 0;
+}
+
+.hamburgerLine.openLinks::before {
+  top: 0;
+  transform: rotate(-45deg)
+}
+
+.hamburgerLine.openLinks::after {
+  top: 0;
+  transform: rotate(45deg)
+}
+
+.navLinks {
+  display: flex;
+  position: absolute;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px);
+  width: 100%;
+  top: 70px;
+  left: 0;
+  z-index: 1;
+  padding: 0 .5rem 3rem .5rem;
+  background-color: rgba(6, 6, 8);
+  transition: .6s;
+}
+
+/* Send links off screen when dropdown is not clicked */
+.hideLinks {
+  left: -1000px;
+}
+
+@media screen and (min-width: 550px) {
+  .navbarWrapper a {
+    font-size: 1.1rem;
+  }
+
+  .hamburgerClickBox {
+    display: none;
+    pointer-events: none;
+  }
+
+  .hideLinks {
+    display: initial;
+    left: 0;
+  }
+
+  .navLinks {
+    width: initial;
+    position: initial;
+    padding: 0;
+    height: initial;
+    flex-direction: row;
+    background: none;
+    border: none;
+    box-shadow: none;
+    gap: 0;
+  }
+
+  .linkWrapper {
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: .4rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .navbarWrapper {
+    padding: .5rem;
+  }
+
+  .logo {
+    position: relative;
+    top: -3px;
+  }
+
+  .linkWrapper {
+    margin-bottom: 0;
+    flex-direction: row;
+  }
 }

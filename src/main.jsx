@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import './index.css';
 import App from './App';
+import ScrollToTop from './components/ScrollToTop';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,14 +17,13 @@ const queryClient = new QueryClient({
 
 ReactDOM.render(
   <React.StrictMode>
-
-    <QueryClientProvider client={queryClient}>
-      <Router>
-        <App />
-        <ReactQueryDevtools />
-      </Router>
-    </QueryClientProvider>
-
+      <QueryClientProvider client={queryClient}>
+        <Router>
+            <ScrollToTop />
+            <App />
+            <ReactQueryDevtools />
+        </Router>
+      </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

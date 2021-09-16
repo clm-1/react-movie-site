@@ -1,0 +1,194 @@
+.personDetailsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.personDetailsLeft {
+  width: 100%;
+}
+
+.personDetailsLeft .personalInfo {
+  margin-top: 1rem;
+  background-color: rgba(169, 169, 169, 0.150);
+  padding: .8rem .6rem;
+  border-radius: 5px;
+}
+
+.personDetailsLeft .personalInfo h3 {
+  font-size: 1rem;
+  margin-bottom: .3rem;
+}
+
+.personDetailsLeft .personalInfo p {
+  margin-bottom: .9rem;
+  opacity: .85;
+}
+
+.personDetailsRight {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.personDetailsWrapper h1 {
+  font-size: 2.4rem;
+}
+
+.personDetailsWrapper h1.mobile {
+  margin-top: .6rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.personDetailsWrapper h1.desktop {
+  display: none;
+  margin-bottom: 1rem;
+}
+
+.personDetailsRight h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: .6rem;
+}
+
+.personDetailsRight p {
+  color: #ddd;
+  white-space: pre-wrap;
+}
+
+.personDetailsLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.personDetailsLeft img {
+  width: 50%;
+  border-radius: 10px;
+}
+
+.personalInfo {
+  width: 100%;
+}
+
+.personDetailsRight .readMore {
+  margin-top: .3rem;
+}
+
+.personDetailsRight .readMore,
+.personalInfo button {
+  align-self: flex-end;
+  cursor: pointer;
+  color: rgb(155, 215, 229);
+  text-align: right;
+  font-size: .9rem;
+}
+
+.personalInfo button {
+  margin-left: auto;
+  background: none;
+  border: none;
+  display: block;
+}
+
+.noBio {
+  color: #ddd;
+  background-color: rgba(169, 169, 169, 0.150);
+  padding: 5rem 2rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.creditWrapper {
+  position: relative;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+  padding: .7rem .5rem;
+  background-color: rgba(169, 169, 169, 0.150);
+  margin-bottom: .5rem;
+}
+
+.creditWrapper:hover {
+  background-color: rgba(169, 169, 169, 0.274);
+}
+
+.creditWrapper .releaseDate {
+  min-width: 40px;
+  text-align: center;
+  font-size: .9rem;
+  opacity: .85;
+}
+
+.creditWrapper .titleAndChar {
+  font-size: .9rem;
+  margin-left: .5rem;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.creditTitle {
+  font-weight: 600;
+}
+
+.asChar {
+  font-style: italic;
+  opacity: .75;
+}
+
+.charName {
+  text-transform: capitalize;
+  margin-top: .3rem;
+  opacity: .85;
+}
+
+.bioWrapper {
+  background-color: rgba(169, 169, 169, 0.150);
+  padding: .7rem .8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 650px) {
+  .personDetailsWrapper {
+    flex-direction: row;
+  }
+
+  .personDetailsLeft {
+    width: 35%;
+  }
+
+  .personDetailsRight {
+    width: 65%;
+  }
+
+  .personDetailsWrapper h1.desktop {
+    display: initial;
+  }
+
+  .personDetailsWrapper h1.mobile {
+    display: none;
+  }
+
+  .personalInfo button {
+    margin-left: 0;
+  }
+
+  .creditWrapper .releaseDate {
+    min-width: 45px;
+    font-size: 1.1rem;
+  }
+
+  .personDetailsLeft img {
+    width: 100%;
+  }
+
+  .creditTitle {
+    font-size: 1rem;
+  }
+}
