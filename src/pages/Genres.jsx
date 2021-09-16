@@ -2,16 +2,17 @@ import React from 'react';
 import { useQuery } from 'react-query';
 import { getGenres } from '../services/MovieAPI';
 import GenreCard from '../components/GenreCard';
-import styles from '../css/Genres.module.css';
 import Loading from '../components/Loading';
 import PageNotFound from '../components/PageNotFound';
+import RecentMovies from '../components/RecentMovies';
 
+import styles from '../css/Genres.module.css';
+
+// Render list of all genres
 const Genres = () => {
-  const { data, isError, error, isLoading } = useQuery('genres', () => {
+  const { data, isError, isLoading } = useQuery('genres', () => {
     return getGenres();
   })
-
-  data && console.log(data);
 
   return (
     <div className="page-container">
@@ -26,6 +27,7 @@ const Genres = () => {
           <GenreCard key={i} genre={genre} />
         )) }
       </div>
+      <RecentMovies />
     </div>
   )
 }

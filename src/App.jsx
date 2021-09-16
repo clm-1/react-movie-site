@@ -11,6 +11,7 @@ import PersonDetails from './pages/PersonDetails';
 import Popular from './pages/Popular';
 import Search from './pages/Search';
 import TopRated from './pages/TopRated';
+import Trending from './pages/Trending';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Navbar />
             <Switch>
               <Route exact path="/" component={Popular} />
+              <Route path="/trending" component={Trending} />
               <Route path="/now-playing" component={NowPlaying} />
               <Route path="/top-rated" component={TopRated} />
               <Route path="/genres/:genreId" component={MoviesByGenre} />

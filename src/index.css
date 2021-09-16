@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
 
@@ -27,9 +26,14 @@ body {
 
 .page-container {
   padding: 1rem;
+  padding-top: 85px;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto 2rem auto;
+}
+
+.page-container.not-top {
+  padding-top: 1.5rem;
 }
 
 hr {
@@ -39,7 +43,6 @@ hr {
 
 .page-header {
   position: relative;
-  display: none;
   justify-content: flex-start;
   margin-bottom: 1rem;
   border-radius: 10px;
@@ -49,14 +52,14 @@ hr {
   display: flex;
 }
 
-.page-header span {
+/* .page-header span {
   background-color: rgb(95, 95, 95);
   padding: 0 .5rem;
   border-radius: 50%;
   font-size: 1.3rem;
   margin-right: .9rem;
   cursor: pointer;
-}
+} */
 
 .page-header h1 {
   font-weight: 400;
@@ -68,7 +71,13 @@ hr {
 }
 
 @media screen and (min-width: 550px) {
-  .page-header {
-    display: flex;
+  .page-container {
+    padding-top: 125px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .page-container {
+    padding-top: 100px;
   }
 }

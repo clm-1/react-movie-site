@@ -4,17 +4,22 @@ import { useQuery } from 'react-query';
 import { getPerson } from '../services/MovieAPI';
 import PageNotFound from '../components/PageNotFound';
 import Loading from '../components/Loading';
-import styles from '../css/PersonDetails.module.css';
 import noProfileImg from '../assets/images/no_profileimg.png';
+
+import styles from '../css/PersonDetails.module.css';
 
 const PersonDetails = () => {
   const { id } = useParams();
+
+  // Get details for actor based on id
   const { data, isError, isLoading } = useQuery(['person', id], () => {
     return getPerson(id);
   });
 
+  // Show or hide extra info and full bio
   const [readMore, setReadMore] = useState(false);
   const [moreNames, setMoreNames] = useState(false);
+
   const imgPrefix = 'https://image.tmdb.org/t/p/w500';
   const history = useHistory();
 
@@ -56,8 +61,6 @@ const PersonDetails = () => {
       </>
     )
   }
-
-  data && console.log(data);
 
   return (
     <div className="page-container">

@@ -1,12 +1,13 @@
 import React from 'react'
 import { useMovieContext } from '../contexts/MovieContext';
-import styles from '../css/NoSearch.module.css';
 import MovieCard from './MovieCard';
 
-const NoSearch = ({ msg }) => {
-  const { todaysRecommendations } = useMovieContext();
+import styles from '../css/NoSearch.module.css';
 
-  todaysRecommendations && console.log(todaysRecommendations);
+// Render message based on search status (not yet searched or no search results)
+const NoSearch = ({ msg }) => {
+  // Get recommended movies from context
+  const { todaysRecommendations } = useMovieContext();
 
   return (
     <div className={styles.noSearchWrapper}>

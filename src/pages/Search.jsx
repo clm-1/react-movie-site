@@ -1,26 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useUrlSearchParams } from 'use-url-search-params';
 import MovieList from '../components/MovieList';
 import NoSearch from '../components/NoSearch';
+
 import styles from '../css/Search.module.css';
-import { useUrlSearchParams } from 'use-url-search-params';
 
 const Search = () => {
   const [params, setParams] = useUrlSearchParams({ q: '' })
-  const [searchInput, setSearchInput] = useState(params.q);
+  const [searchInput, setSearchInput] = useState('');
+  const history = useHistory();
 
+  // Change state on input change
   const handleInputChange = (e) => {
     setSearchInput(e.target.value)
   }
 
+  // Set params to searchInput state on submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    setParams({ q: searchInput });
+    setParams({ page: 1, q: searchInput });
   }
 
+  // Clear form: reset params and searchInput
   const handleClear = () => {
-    setParams({ page: 1, q: '' })
+    history.push('/search/page=1&q=');
     setSearchInput('');
   }
+
+  // Set search input to previous query if there is one
+  useEffect(() => {
+    if (params.q) {
+      setSearchInput(params.q);
+    }
+  }, [params])
 
   return (
     <div className="page-container">

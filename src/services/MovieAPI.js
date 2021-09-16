@@ -20,10 +20,23 @@ export const getMovies = async (type, page) => {
   return await get(`/movie/${type}?api_key=${apiKey}&page=${page}&region=${reg}`);
 };
 
-export const getRecommendedMovies = async (id) => {
+// Get trending movies for the day or the week
+export const getTrending = async (timeWindow, page) => {
+  if (!page) page = 1;
+  // Check if timeWindow is valid
+  timeWindow === 'day' || timeWindow === 'week' ? timeWindow === timeWindow : timeWindow = 'day'
+
+  return await get(`https://api.themoviedb.org/3/trending/movie/${timeWindow}?api_key=${apiKey}&page=${page}`)
+}
+
+// Related movies
+// Get recommended movies based on a movie id (displayed on movie details-page)
+// Using "recommendations" instead of "similar" because the responses felt more relevant to the current movie 
+export const getRelatedMovies = async (id) => {
   return await get(`/movie/${id}/recommendations?api_key=${apiKey}`);
 }
 
+// Get search result based on query
 export const getSearch = async (searchQuery, page) => {
   return await get(`/search/movie?api_key=${apiKey}&query=${searchQuery}&page=${page}`)
 }

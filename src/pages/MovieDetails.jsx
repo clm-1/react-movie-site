@@ -1,25 +1,39 @@
-import React from 'react'
-import styles from '../css/MovieDetails.module.css';
+import React, { useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { getMovie, getRecommendedMovies } from '../services/MovieAPI';
+import { getMovie, getRelatedMovies } from '../services/MovieAPI';
 import noPoster from '../assets/images/no_poster.png';
 import noProfileImg from '../assets/images/no_profileimg.png';
 import Loading from '../components/Loading';
 import PageNotFound from '../components/PageNotFound';
 import MovieCard from '../components/MovieCard';
+import useRecentMovies from '../hooks/useRecentMovies';
+
+import styles from '../css/MovieDetails.module.css';
 
 const MovieDetails = () => {
   const { id } = useParams();
   const history = useHistory();
-  const { data, isError, error, isLoading } = useQuery(['details', id], () => {
+
+  // Use recent movies-hook
+  const { setRecentMovies } = useRecentMovies('recent-movies');
+
+  // Get movie based on id from params
+  const { data, isError, isLoading } = useQuery(['details', id], () => {
     return getMovie(id);
   });
-  const recommended = useQuery(['recommended', id], () => {
-    return getRecommendedMovies(id);
+
+  // Get recommended movies based on this movie
+  const related = useQuery(['related', id], () => {
+    return getRelatedMovies(id);
   })
 
-  recommended.data && console.log(recommended.data);
+  // Add this movie to local storage
+  useEffect(() => {
+    if (data) {
+      setRecentMovies(data);
+    }
+  }, [data])
 
   // Prefixes for poster and cover img
   const imgPrefix = 'https://image.tmdb.org/t/p/w500';
@@ -72,7 +86,7 @@ const MovieDetails = () => {
       {isLoading && <Loading />}
       {isError && <PageNotFound />}
       {data && renderHeader()}
-      <div className="page-container">
+      <div className={`page-container not-top`}>
         {data &&
           <>
             <h2>Top Cast:</h2>
@@ -89,7 +103,7 @@ const MovieDetails = () => {
             </div>
             {data && data.credits.cast.length > 10 &&
               <>
-                <h2>Full Cast:</h2>
+                <h2>Additional Cast:</h2>
                 <div className={styles.fullCast}>
                   {data.credits.cast.slice(10).map((actor, i) => (
                     <div key={i} className={styles.castCardSmall}>
@@ -101,12 +115,16 @@ const MovieDetails = () => {
               </>
             }
           </>}
-          <h2>Related Movies:</h2>
-          <div className={styles.recommendedMoviesWrapper}>
-            {recommended.data && recommended.data.results.slice(0, 8).map((movie, i) => (
-              <MovieCard key={i} movie={movie} />
-            ))}
-          </div>
+          { related.data && related.data.results.length > 0 && 
+            <>
+            <h2>Related Movies:</h2>
+            <div className={styles.relatedMoviesWrapper}>
+              {related.data.results.slice(0, 8).map((movie, i) => (
+                <MovieCard key={i} movie={movie} />
+              ))}
+            </div>
+            </>
+          }
       </div>
     </div>
   )
