@@ -19,7 +19,7 @@ const MovieDetails = () => {
   const { setRecentMovies } = useRecentMovies('recent-movies');
 
   // Get movie based on id from params
-  const { data, isError, error, isLoading } = useQuery(['details', id], () => {
+  const { data, isError, isLoading } = useQuery(['details', id], () => {
     return getMovie(id);
   });
 
@@ -103,7 +103,7 @@ const MovieDetails = () => {
             </div>
             {data && data.credits.cast.length > 10 &&
               <>
-                <h2>Full Cast:</h2>
+                <h2>Additional Cast:</h2>
                 <div className={styles.fullCast}>
                   {data.credits.cast.slice(10).map((actor, i) => (
                     <div key={i} className={styles.castCardSmall}>
