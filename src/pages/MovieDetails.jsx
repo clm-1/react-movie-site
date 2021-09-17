@@ -33,6 +33,7 @@ const MovieDetails = () => {
       {isError && <PageNotFound />}
       {data && <DetailsHeader data={data} />}
       <div className={`page-container not-top`}>
+        {/* Use ActorList and RelatedMovies components if data exists */}
         {data &&
           <>
             <ActorsList data={data} />

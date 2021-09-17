@@ -12,7 +12,7 @@ const Trending = () => {
 
   // Change time frame to day or week
   const handleBtnClick = (timeFrame) => {
-    setParams({ ...params, timeframe: timeFrame });
+    setParams({ page: 1, timeframe: timeFrame });
   }
 
   return (

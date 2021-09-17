@@ -30,8 +30,8 @@ export const getTrending = async (timeWindow, page) => {
 }
 
 // Related movies
-// Get recommended movies based on a movie id (displayed on movie details-page)
-// Using "recommendations" instead of "similar" because the responses felt more relevant to the current movie 
+// Get recommendations for other movies based on a movie id (displayed on movie details-page)
+// Can enter "similar" instead of "recommendations" to get different responses here
 export const getRelatedMovies = async (id) => {
   return await get(`/movie/${id}/recommendations?api_key=${apiKey}`);
 }
