@@ -4,10 +4,8 @@ import styles from '../css/PageNotFound.module.css';
 
 const Loading = () => {
   return (
-    <div className="">
-      <div className={styles.pageNotFoundWrapper}>
-        <p>Loading...</p>
-      </div>
+    <div className={styles.pageNotFoundWrapper}>
+      <p>Loading...</p>
     </div>
   )
 }

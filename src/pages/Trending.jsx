@@ -1,5 +1,4 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { useUrlSearchParams } from 'use-url-search-params';
 import MovieList from '../components/MovieList';
 import RecentMovies from '../components/RecentMovies';
@@ -10,11 +9,10 @@ import styles from '../css/Trending.module.css';
 // Can be for the day or the week
 const Trending = () => {
   const [params, setParams] = useUrlSearchParams({ timeframe: 'day' });
-  const history = useHistory();
 
   // Change time frame to day or week
   const handleBtnClick = (timeFrame) => {
-    setParams({ ...params, timeframe: timeFrame });
+    setParams({ page: 1, timeframe: timeFrame });
   }
 
   return (

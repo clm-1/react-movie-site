@@ -7,7 +7,7 @@
   font-size: 1.2rem;
   cursor: pointer;
   text-align: center;
-  /* box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.404); */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.151);
 }
 
 .genreCardWrapper:hover {
