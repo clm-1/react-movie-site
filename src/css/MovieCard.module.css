@@ -35,8 +35,15 @@
 }
 
 .movieCardWrapper .cardTitle {
-  font-size: .85rem;
+  font-size: .73rem;
   padding: .4rem .6rem .7rem .6rem;
+}
+
+@media screen and (min-width: 400px) {
+  .movieCardWrapper .cardTitle {
+    font-size: .9rem;
+    padding: .4rem .6rem .7rem .6rem;
+  }
 }
 
 @media screen and (min-width: 600px) {

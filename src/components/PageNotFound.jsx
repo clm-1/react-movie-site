@@ -8,11 +8,9 @@ const PageNotFound = () => {
   const history = useHistory();
 
   return (
-    <div className="">
-      <div className={styles.pageNotFoundWrapper}>
-        <p>Page not found...</p>
-        <button onClick={() => history.goBack()}>Back</button>
-      </div>
+    <div className={styles.pageNotFoundWrapper}>
+      <p>Page not found...</p>
+      <button onClick={() => history.goBack()}>Back</button>
     </div>
   )
 }

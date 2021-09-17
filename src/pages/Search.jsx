@@ -24,7 +24,7 @@ const Search = () => {
 
   // Clear form: reset params and searchInput
   const handleClear = () => {
-    history.push('/search/page=1&q=');
+    history.push('/search?page=1&q=');
     setSearchInput('');
   }
 
